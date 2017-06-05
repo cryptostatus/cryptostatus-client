@@ -1,7 +1,8 @@
 import React from 'react';
 import { Provider } from 'react-redux'
-import { Router, Route } from 'react-router'
-import * as Auth from './features/Auth';
+import { Router, Route, IndexRoute } from 'react-router'
+import * as Auth from 'features/Auth';
+import * as Balance from 'features/Balance';
 // import logo from './logo.svg';
 import './App.css';
 
@@ -12,6 +13,10 @@ export default ({ store, history }) =>
         <Route path='auth'>
           <Route path='signup' component={Auth.Signup}/>
           <Route path='signin' component={Auth.Signin}/>
+        </Route>
+
+        <Route path='balances'>
+          <IndexRoute component={Balance.List}/>
         </Route>
       </Route>
     </Router>

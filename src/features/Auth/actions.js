@@ -1,10 +1,13 @@
 import * as Api from 'features/Api';
 import { expandPath, pick } from 'utils';
 import { AUTH_SET_ACCESS_HEADERS } from 'actions/types';
+import * as storage from 'storage';
+
+const extractAccessHeaders = pick(['access-token', 'expiry', 'token-type', 'uid', 'client']);
 
 export const setAccessHeaders = (headers) => ({
   type: AUTH_SET_ACCESS_HEADERS,
-  payload: pick(['access-token', 'expiry', 'token-type', 'uid', 'client'], headers),
+  payload: headers,
 })
 
 export const signup = (data) =>
@@ -15,4 +18,9 @@ export const signup = (data) =>
 
 export const signin = (data) => (dispatch) =>
   dispatch(Api.post('auth/sign_in', data))
-    .then(({ headers }) => dispatch(setAccessHeaders(headers)))
+    .then((res) => {
+      const accessHeaders = extractAccessHeaders(res.headers);
+      dispatch(setAccessHeaders(accessHeaders));
+      storage.set('authData', accessHeaders);
+      return res;
+    })

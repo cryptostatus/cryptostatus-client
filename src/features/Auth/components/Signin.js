@@ -2,8 +2,9 @@ import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { Input } from 'components/fields';
 import { Button, Alert } from 'components';
+import { formAdapter } from 'utils';
 
-export default reduxForm()(({ handleSubmit, error, submitting }) =>
+const Form = reduxForm()(({ handleSubmit, error, submitting }) =>
   <form onSubmit={handleSubmit}>
     <h1>Signin</h1>
     <Field type='email' name='email' component={Input}/>
@@ -14,3 +15,11 @@ export default reduxForm()(({ handleSubmit, error, submitting }) =>
     <Button type='submit'>Signup</Button>
   </form>
 )
+
+export default ({ signin, push, ...rest }) =>
+  <Form
+    {...rest}
+    onSubmit={formAdapter((data) =>
+      signin(data).then(() => push('/balances')))
+    }
+  />

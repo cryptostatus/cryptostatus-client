@@ -12,11 +12,14 @@ export const get = curry((path, object) =>
 export const set = curry((path, value, object) =>
   dotProp.set(object, path, value))
 
-export const formAdapter = (action) => (...args) => (dispatch) =>
-  dispatch(action(...args)).catch((err) => {
+export const formAdapter = (f) => (...args) =>
+  f(...args).catch((err) => {
+    console.error(err);
+
     throw new SubmissionError({
-      x: console.log(get('response.data.errors.full_messages', err)),
-      _error: get('response.data.errors.full_messages', err) || ['Unknown error'],
+      _error: get('response.data.errors.full_messages', err)
+        || get('response.data.errors', err)
+        || ['Unknown error'],
     });
   })
 
