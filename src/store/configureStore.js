@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { routerMiddleware as createRouterMiddleware } from 'react-router-redux';
 import { createLogger as createLoggerMiddleware } from 'redux-logger';
+import thunkMiddleware from 'redux-thunk';
 import reducer from './reducer'
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -18,7 +19,7 @@ export default ({ history }) => {
     []
 
   const middlewares = applyMiddleware(
-    // thunkMiddleware,
+    thunkMiddleware,
     routerMiddleware,
     ...devMiddleware
   );
