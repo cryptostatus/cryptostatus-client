@@ -10,6 +10,9 @@ export const setAccessHeaders = (headers) => ({
   payload: headers,
 })
 
+export const init = () =>
+  setAccessHeaders(storage.get('authData'))
+
 export const signup = (data) =>
   Api.post('auth', {
     ...data,
