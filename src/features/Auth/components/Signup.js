@@ -1,24 +1,26 @@
-import React from 'react';
-import { reduxForm, Field } from 'redux-form';
-import { Input } from 'components/fields';
-import { Button, Alert } from 'components';
-import { formAdapter } from 'utils';
+import React from 'react'
 
-const Form = reduxForm()(({ handleSubmit, error, submitting }) =>
+import { Input } from 'components/fields'
+import { Button, Alert } from 'components'
+
+const Form = ({ handleSubmit, error, submitting }) => (
   <form onSubmit={handleSubmit}>
     <h1>Signup</h1>
-    <Field type='email' name='email' component={Input}/>
-    <Field type='password' name='password' component={Input}/>
-    <Field type='password' name='passwordConfirmation' component={Input}/>
+
+    <Input type='email' name='email' placeholder='Email' />
+    <Input type='password' name='password' placeholder='Password' />
+    <Input type='password' name='passwordConfirmation' placeholder='Password again' />
+
     {error &&
-      <Alert type='danger'>{error}</Alert>
+      <Alert type='danger'>
+        {error}
+      </Alert>
     }
-    <Button type='submit'>Signup</Button>
+
+    <Button type='submit'>
+      Signup
+    </Button>
   </form>
 )
 
-export default ({ signup, ...rest }) =>
-  <Form
-    {...rest}
-    onSubmit={formAdapter((data) => signup(data))}
-  />
+export default Form
