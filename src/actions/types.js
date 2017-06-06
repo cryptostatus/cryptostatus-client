@@ -1,10 +1,9 @@
-const type = (x) =>
-  'CRYPTOSTATUS/' + x
+const type = (value) => 'CRYPTOSTATUS/' + value
 
-export const REQUEST = '/REQUEST';
-export const SUCCESS = '/SUCCESS';
-export const FAILURE = '/FAILURE';
+export const REQUEST = '/REQUEST'
+export const SUCCESS = '/SUCCESS'
+export const FAILURE = '/FAILURE'
 
-export const API_CALL = type('API_CALL');
+export const API_CALL = type('API_CALL')
 
-export const AUTH_SET_ACCESS_HEADERS = type('AUTH/SET_ACCESS_HEADERS');
+export const AUTH_SET_ACCESS_HEADERS = type('AUTH/SET_ACCESS_HEADERS')
