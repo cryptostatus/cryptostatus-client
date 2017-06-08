@@ -2,10 +2,10 @@ import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
 import { reducer as formReducer } from 'redux-form'
 
-import * as Auth from 'features/Auth'
+import { reducer as userReducer } from 'features/User'
 
 export default combineReducers({
-  routing: routerReducer,
   form: formReducer,
-  auth: Auth.reducer,
+  user: userReducer,
+  routing: routerReducer
 })
