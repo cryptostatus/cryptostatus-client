@@ -1,13 +1,13 @@
 import { createSelector } from 'reselect'
-import { pick } from 'utils'
+import { props } from 'utils'
 import * as Entities from 'features/Entities'
 
 export const balancesSelector = createSelector(
   Entities.entitiesSelector,
-  ({ balances }) => balances || {}
+  ({ balances }) => balances || { allIds: [] }
 )
 
 export const allBalancesSelector = createSelector(
   balancesSelector,
-  ({ byId, allIds }) => pick(allIds, byId)
+  ({ byId, allIds }) => props(allIds, byId)
 )

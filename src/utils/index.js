@@ -1,5 +1,5 @@
 import { SubmissionError } from 'redux-form';
-import { curry, cond, fromPairs, pipe, T, identity, pick } from 'ramda';
+import { curry, cond, fromPairs, pipe, T, identity, props, pick } from 'ramda';
 import lodashMap from 'lodash/map';
 import snakeCase from 'lodash/snakeCase';
 import isObject from 'lodash/isObject';
@@ -23,13 +23,6 @@ export const formAdapter = (f) => (...args) =>
     });
   })
 
-export const expandPath = (path) => {
-  const parser = document.createElement('a')
-  parser.href = window.location.toString()
-  parser.pathname = path
-  return parser.href.toString()
-}
-
 export const map = curry((f, x) => lodashMap(x, f));
 
 export const createReducer = (iniitialState, defs) => (state = iniitialState, { type, payload }) => {
@@ -42,5 +35,12 @@ export const createReducer = (iniitialState, defs) => (state = iniitialState, { 
   }
 }
 
-export { cond, isObject, snakeCase, pipe, fromPairs, isArray, T, identity, pick };
+export const expandPath = (path) => {
+  const parser = document.createElement('a')
+  parser.href = window.location.toString()
+  parser.pathname = path
+  return parser.href.toString()
+}
+
+export { cond, isObject, snakeCase, pipe, fromPairs, isArray, T, identity, props, pick };
 export { default as componentDidMount } from './componentDidMount'

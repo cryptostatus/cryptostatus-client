@@ -1,4 +1,3 @@
-import React from 'react'
 import List from './components/List'
 import { connect } from 'react-redux'
 import { pipe, componentDidMount } from 'utils'
@@ -13,7 +12,7 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = actions
 
 const decorate = pipe(
-  componentDidMount(({ getBalances }) => console.log(getBalances())),
+  componentDidMount(({ getBalances }) => getBalances()),
   connect(mapStateToProps, mapDispatchToProps)
 )
 

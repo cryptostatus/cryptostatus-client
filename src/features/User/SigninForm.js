@@ -2,25 +2,25 @@ import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
 import { replace } from 'react-router-redux'
 
-import { signup } from './actions'
+import { signin } from './actions'
 
-import Signup from './components/Signup'
+import SigninForm from './components/SigninForm'
 
 import { formAdapter } from 'utils'
 
 const mapDispatchToProps = {
   replace,
-  signup,
+  signin,
 }
 
 const mergeProps = (_, dispatchProps, ownProps) => ({
   ...ownProps, onSubmit: formAdapter(
-    (data) => dispatchProps.signup(data).then(
+    (data) => dispatchProps.signin(data).then(
       () => dispatchProps.replace('/balances')
     )
   )
 })
 
 export default connect(null, mapDispatchToProps, mergeProps)(
-  reduxForm({ form: 'Auth.Signup' })(Signup)
+  reduxForm({ form: 'User.SigninForm' })(SigninForm)
 )
