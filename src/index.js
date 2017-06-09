@@ -6,7 +6,7 @@ import { syncHistoryWithStore } from 'react-router-redux'
 
 import App from 'App'
 
-import * as Auth from 'features/Auth'
+import * as User from 'features/User'
 
 import { configureStore } from 'store'
 
@@ -15,7 +15,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 const store = configureStore({ history: browserHistory })
 const history = syncHistoryWithStore(browserHistory, store)
 
-store.dispatch(Auth.init())
+store.dispatch(User.init())
 
 ReactDOM.render(
   <App

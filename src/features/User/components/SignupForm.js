@@ -3,7 +3,7 @@ import React from 'react'
 import { Input } from 'components/fields'
 import { Button, Alert } from 'components'
 
-const Form = ({ handleSubmit, error, submitting }) => (
+const SignupForm = ({ handleSubmit, error, submitting }) => (
   <form onSubmit={handleSubmit}>
     <h1>Signup</h1>
 
@@ -23,4 +23,4 @@ const Form = ({ handleSubmit, error, submitting }) => (
   </form>
 )
 
-export default Form
+export default SignupForm
