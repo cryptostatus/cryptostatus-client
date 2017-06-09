@@ -43,3 +43,4 @@ export const createReducer = (iniitialState, defs) => (state = iniitialState, { 
 }
 
 export { cond, isObject, snakeCase, pipe, fromPairs, isArray, T, identity, pick };
+export { default as componentDidMount } from './componentDidMount'
