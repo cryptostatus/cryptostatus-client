@@ -8,7 +8,7 @@ const transformRequestData = cond([
 ])
 
 const client = axios.create({
-  baseURL: 'http://localhost:3000/api/v1',
+  baseURL: process.env.DOMAIN+'/api/v1',
 });
 
 const request = (method, path, data) => (dispatch) =>
