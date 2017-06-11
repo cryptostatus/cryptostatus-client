@@ -10,7 +10,11 @@ const isDev = process.env.NODE_ENV === 'development'
 
 const configureStore = ({ history }) => {
   const routerMiddleware = createRouterMiddleware(history)
-  const loggerMiddleware = createLoggerMiddleware({ collapsed: true })
+  const loggerMiddleware = createLoggerMiddleware({
+    collapsed: true,
+    timestamp: false,
+    duration: true,
+  })
 
   const devMiddleware = isDev ?
     [loggerMiddleware] :

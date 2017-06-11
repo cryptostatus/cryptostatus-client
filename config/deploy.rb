@@ -10,13 +10,17 @@ set :keep_releases, 2
 set :log_level, :debug
 set :pty, false
 
-set :linked_files, ['.env']
+set :linked_dirs, %w[node_modules]
+set :linked_files, %w['.env']
 
 namespace :deploy do
   desc 'Build frontend'
   task :build_assets do
-    within release_path do
-      execute :npm, :build
+    on roles(:web) do
+      within release_path do
+        execute :npm, 'install'
+        execute :npm, 'run build'
+      end
     end
   end
 
@@ -27,5 +31,5 @@ namespace :deploy do
     end
   end
 
-  before :finished, 'deploy:compile_assets'
+  before :finished, 'deploy:build_assets'
 end
