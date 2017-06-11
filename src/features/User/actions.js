@@ -1,10 +1,8 @@
 import * as Api from 'features/Api'
-
-import { pick } from 'ramda'
-
-import { USER_SET_ACCESS_HEADERS } from 'actions/types'
-
+import { pick, expandPath } from 'utils'
+import { USER_SET_ACCESS_HEADERS, USER_SIGNOUT } from 'actions/types'
 import * as storage from 'storage'
+import { push } from 'react-router-redux'
 
 const extractAccessHeaders = pick([
   'access-token',
@@ -25,15 +23,22 @@ export const init = () => (
   )
 )
 
-export const signin = (data) => (dispatch) => (
+export const signin = (data) => (dispatch) =>
   dispatch(Api.post('/auth/sign_in', data)).then((response) => {
     const accessHeaders = extractAccessHeaders(response.headers)
     dispatch(setAccessHeaders(accessHeaders))
     storage.set('authData', accessHeaders)
     return response
   })
-)
 
-export const signup = (data) => (
-  Api.post('auth', {...data, confirmSuccessUrl: `${window.location.origin}/signin`})
-)
+export const signup = (data) =>
+  Api.post('auth', {
+    ...data,
+    confirmSuccessUrl: expandPath('/signin'),
+  })
+
+export const signout = () => (dispatch) => {
+  dispatch({ type: USER_SIGNOUT })
+  storage.remove('authData')
+  dispatch(push('/'))
+}

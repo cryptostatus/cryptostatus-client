@@ -17,8 +17,8 @@ const Input = ({ input, label, placeholder, type }) => (
 )
 
 Input.propTypes = {
-  label: PropTypes.string,
-  placeholder: PropTypes.string,
+  label: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   input: PropTypes.object.isRequired,
 }
