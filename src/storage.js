@@ -55,3 +55,6 @@ export const get = (path) => {
   const item = window.localStorage.getItem(`Cryptostatus.${path}`)
   return item && JSON.parse(item)
 }
+
+export const remove = (path) =>
+  window.localStorage.removeItem(`Cryptostatus.${path}`)

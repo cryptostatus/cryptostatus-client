@@ -1,24 +1,36 @@
 import { SubmissionError } from 'redux-form';
-import { curry, cond, fromPairs, pipe, T, identity, props, pick } from 'ramda';
+import { curry, cond, fromPairs, pipe, T, identity, props, pick, reduce, uniq, always, chain, toPairs } from 'ramda';
 import lodashMap from 'lodash/map';
 import snakeCase from 'lodash/snakeCase';
+import camelCase from 'lodash/camelCase';
 import isObject from 'lodash/isObject';
 import isArray from 'lodash/isArray';
 import dotProp from 'dot-prop-immutable';
+import capitalize from 'lodash/capitalize';
+import lowerCase from 'lodash/lowerCase';
 
+// get :: k -> { k: a } -> a
 export const get = curry((path, object) =>
   dotProp.get(object, path))
 
+// set :: k -> b -> { k: a } -> { k: b }
 export const set = curry((path, value, object) =>
   dotProp.set(object, path, value))
 
+// Same implementation as set, but different semantics
+// update :: k -> (a -> b) -> { k: a } -> { k: b }
+export const update = set
+
 export const formAdapter = (f) => (...args) =>
   f(...args).catch((err) => {
-    console.error(err);
+    const formatErrors = (errors) =>
+      errors && isArray(errors) ?
+        errors :
+        chain(([k, vs]) => map((v) => `${capitalize(lowerCase(k))} ${v}`, vs), toPairs(errors))
 
     throw new SubmissionError({
       _error: get('response.data.errors.full_messages', err)
-        || get('response.data.errors', err)
+        || formatErrors(get('response.data.errors', err))
         || ['Unknown error'],
     });
   })
@@ -42,5 +54,11 @@ export const expandPath = (path) => {
   return parser.href.toString()
 }
 
-export { cond, isObject, snakeCase, pipe, fromPairs, isArray, T, identity, props, pick };
+export const deepTransformKeys = curry((f, value) => cond([
+  [isArray, map(deepTransformKeys(f))],
+  [isObject, pipe(map((value, key) => [f(key), deepTransformKeys(f, value)]), fromPairs)],
+  [T, identity],
+])(value))
+
 export { default as componentDidMount } from './componentDidMount'
+export { cond, isObject, snakeCase, pipe, fromPairs, isArray, T, identity, props, pick, reduce, uniq, always, camelCase };

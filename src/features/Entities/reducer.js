@@ -1,11 +1,13 @@
 import { API_CALL, SUCCESS } from 'actions/types'
+import { set, reduce, createReducer, pipe, update, uniq, isArray } from 'utils'
 
-export default (state = {}, { type, payload }) => {
-  switch (type) {
-    case API_CALL + SUCCESS:
-      console.log(payload)
-      return state
-    default:
-      return state
-  }
-}
+export default createReducer({}, {
+  [API_CALL + SUCCESS]: (state, payload) => reduce(
+    (state, entity) => pipe(
+      set(`${entity.type}.byId.${entity.id}`, entity),
+      update(`${entity.type}.allIds`, (allIds) => uniq([...allIds, entity.id]))
+    )(state),
+    state,
+    isArray(payload.data) ? payload.data : [payload.data]
+  ),
+})

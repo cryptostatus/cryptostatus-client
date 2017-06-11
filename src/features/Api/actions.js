@@ -1,13 +1,7 @@
 import axios from 'axios';
 import { API_CALL, REQUEST, SUCCESS, FAILURE } from 'actions/types'
-import { cond, map, T, identity, isObject, isArray, pipe, snakeCase, fromPairs } from 'utils'
+import { snakeCase, deepTransformKeys, camelCase } from 'utils'
 import * as User from 'features/User'
-
-const transformRequestData = cond([
-  [isObject, pipe(map((value, key) => [snakeCase(key), transformRequestData(value)]), fromPairs)],
-  [isArray, map(transformRequestData)],
-  [T, identity],
-])
 
 const request = (method, path, data) => (dispatch, getState) => {
   dispatch({
@@ -20,7 +14,7 @@ const request = (method, path, data) => (dispatch, getState) => {
     baseURL: 'http://localhost:3000/api/v1',
     method,
     url: path,
-    data: transformRequestData(data),
+    data: deepTransformKeys(snakeCase, data),
     headers: accessHeaders,
   }
 
@@ -28,14 +22,20 @@ const request = (method, path, data) => (dispatch, getState) => {
     .then((res) => {
       dispatch({
         type: API_CALL + SUCCESS,
-        payload: res,
+        payload: {
+          ...res,
+          data: deepTransformKeys(camelCase, res.data),
+        },
       });
 
       return res;
     }).catch((err) => {
       dispatch({
         type: API_CALL + FAILURE,
-        payload: err,
+        payload: {
+          ...err,
+          data: deepTransformKeys(camelCase, err.data),
+        },
         error: true,
       });
 

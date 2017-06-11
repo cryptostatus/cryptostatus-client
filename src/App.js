@@ -37,9 +37,11 @@ export default ({ store, history }) =>
           <Route path='signin' component={User.SigninForm} />
         </Route>
 
-        <Route onEnter={requireAuthorized(store)}>
+        <Route onEnter={requireAuthorized(store)} component={User.Layout}>
           <Route path='balances'>
             <IndexRoute component={Balance.List} />
+
+            <Route path='new' component={Balance.Create} />
           </Route>
         </Route>
       </Route>

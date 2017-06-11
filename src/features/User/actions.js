@@ -1,10 +1,8 @@
 import * as Api from 'features/Api'
-
 import { pick, expandPath } from 'utils'
-
-import { USER_SET_ACCESS_HEADERS } from 'actions/types'
-
+import { USER_SET_ACCESS_HEADERS, USER_SIGNOUT } from 'actions/types'
 import * as storage from 'storage'
+import { push } from 'react-router-redux'
 
 const extractAccessHeaders = pick([
   'access-token',
@@ -38,3 +36,9 @@ export const signup = (data) =>
     ...data,
     confirmSuccessUrl: expandPath('/signin'),
   })
+
+export const signout = () => (dispatch) => {
+  dispatch({ type: USER_SIGNOUT })
+  storage.remove('authData')
+  dispatch(push('/'))
+}
