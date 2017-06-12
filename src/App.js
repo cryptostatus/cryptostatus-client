@@ -2,6 +2,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { Router, Route, IndexRoute, IndexRedirect } from 'react-router'
 
+import { Layout } from 'components'
 import * as User from 'features/User'
 import * as Balance from 'features/Balance'
 
@@ -29,7 +30,7 @@ const requireAuthorized = (store) => (nextState, replace) => {
 export default ({ store, history }) =>
   <Provider store={store}>
     <Router history={history}>
-      <Route path='/'>
+      <Route path='/' component={Layout}>
         <IndexRedirect to='signin'/>
 
         <Route onEnter={requireNotAuthorized(store)}>
@@ -41,9 +42,12 @@ export default ({ store, history }) =>
           <Route path='balances'>
             <IndexRoute component={Balance.List} />
 
-            <Route path='new' component={Balance.Create} />
+            <Route path='new/seller' component={Balance.Create} strategy='seller'/>
+            <Route path='new/buyer' component={Balance.Create} strategy='buyer'/>
           </Route>
         </Route>
+
+        <Route path='*' component={() => <h1>Route not found</h1>}/>
       </Route>
     </Router>
   </Provider>

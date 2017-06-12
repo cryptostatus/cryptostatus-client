@@ -2,6 +2,10 @@ import React from 'react'
 import { Button, Alert } from 'components'
 import { reduxForm } from 'redux-form'
 import { Input, Select } from 'components/fields'
+import currencies from 'utils/currencies'
+import { map } from 'utils'
+
+const currencyOptions = map((name) => ({ text: name, value: name }), currencies)
 
 const strategyOptions = [
   { text: 'seller', value: 'seller' },
@@ -10,11 +14,10 @@ const strategyOptions = [
 
 const Create = ({ handleSubmit, error, submitting }) =>
   <form onSubmit={handleSubmit}>
-    <Input type='text' name='name' placeholder='name' label='Name'/>
+    <Select name='name' placeholder='name' label='Name' options={currencyOptions}/>
     <Input type='number' name='amount' placeholder='amount' label='Amount'/>
     <Input type='number' name='invested' placeholder='invested' label='Invested'/>
     <Input type='number' name='profitPercent' placeholder='profit percent' label='Profit percent'/>
-    <Select name='strategy' placeholder='strategy' label='Strategy' options={strategyOptions}/>
 
     {error &&
       <Alert type='danger'>
