@@ -4,9 +4,13 @@ import { always, formAdapter } from 'utils'
 import * as actions from './actions'
 import { createStructuredSelector } from 'reselect'
 import { push } from 'react-router-redux'
+import currencies from 'utils/currencies'
 
 const mapStateToProps = createStructuredSelector({
   form: always('Balance.Create'),
+  initialValues: always({
+    name: currencies[0],
+  }),
 })
 
 const mapDispatchToProps = {
@@ -18,8 +22,11 @@ const mergeProps = (state, dispatch, own) => ({
   ...state,
   ...dispatch,
   ...own,
-  onSubmit: formAdapter((...args) =>
-    dispatch.createBalance(...args).then(() => dispatch.push('/balances'))),
+  onSubmit: formAdapter((data) =>
+    dispatch.createBalance({
+      ...data,
+      strategy: own.route.strategy
+    }).then(() => dispatch.push('/balances'))),
 })
 
 export default connect(

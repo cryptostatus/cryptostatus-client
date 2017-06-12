@@ -9,9 +9,10 @@ const request = (method, path, data) => (dispatch, getState) => {
   });
 
   const accessHeaders = User.accessHeadersSelector(getState())
+  const baseURL = process.env.REACT_APP_DOMAIN
 
   const config = {
-    baseURL: 'http://localhost:3000/api/v1',
+    baseURL,
     method,
     url: path,
     data: deepTransformKeys(snakeCase, data),
