@@ -10,7 +10,7 @@ import * as User from 'features/User'
 
 import { configureStore } from 'store'
 
-import 'bootstrap/dist/css/bootstrap.css'
+import 'styles/App.css'
 
 const store = configureStore({ history: browserHistory })
 const history = syncHistoryWithStore(browserHistory, store)
