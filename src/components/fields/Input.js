@@ -3,21 +3,18 @@ import PropTypes from 'prop-types'
 
 import { Field } from 'redux-form'
 
-const Input = ({ input, label, placeholder, type }) => (
+const Input = ({ input, placeholder, type }) => (
   <div className='form-group'>
-    <label>{label}</label>
-
     <input
       {...input}
       type={type}
-      className='form-control'
+      className='form-control input__form'
       placeholder={placeholder}
     />
   </div>
 )
 
 Input.propTypes = {
-  label: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   input: PropTypes.object.isRequired,

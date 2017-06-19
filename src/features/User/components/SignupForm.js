@@ -5,12 +5,12 @@ import { Button, Alert } from 'components'
 import { Link } from 'react-router'
 
 const SignupForm = ({ handleSubmit, error, submitting }) => (
-  <form onSubmit={handleSubmit}>
-    <h1>Signup</h1>
+  <form onSubmit={handleSubmit} className='form__auth'>
+    <h2>Sign Up</h2>
 
-    <Input type='email' name='email' placeholder='email' label='Email' />
-    <Input type='password' name='password' placeholder='password' label='Password' />
-    <Input type='password' name='passwordConfirmation' placeholder='password confirmation' label='Password Confirmation' />
+    <Input type='email' name='email' placeholder='email' />
+    <Input type='password' name='password' placeholder='password' />
+    <Input type='password' name='passwordConfirmation' placeholder='password confirmation' />
 
     {error &&
       <Alert type='danger'>
@@ -19,13 +19,15 @@ const SignupForm = ({ handleSubmit, error, submitting }) => (
     }
 
     <Button type='submit'>
-      Signup
+      Create account
     </Button>
 
-    or
+    <span className='form__hint'>
+      or
+    </span>
 
-    <Button as={Link} to='/signin'>
-      Signin
+    <Button className='btn-link btn-hint' as={Link} to='/signin'>
+      sign in
     </Button>
   </form>
 )
