@@ -14,7 +14,7 @@
     background: #000000;
     color: #FFFFFF;
   }
-  @media (max-width: $screen-sm-min) {
+  @media (max-width: 768px) {
     padding-right: 15%;
   }
 }
@@ -22,7 +22,7 @@
 .form__auth--landing {
   margin-top: -7%;
 
-  @media (max-width: $screen-sm-min) {
+  @media (max-width: 768px) {
     margin-top: 15%;
     padding-left: 0;
     padding-right: 0;

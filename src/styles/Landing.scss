@@ -7,7 +7,7 @@ body {
 .landing {
   color: #ffffff;
   margin-top: 35.5%;
-  @media (max-width: $screen-sm-min) {
+  @media (max-width: 768px) {
     margin-top: 0;
   }
 }
