@@ -7,11 +7,6 @@ import { map } from 'utils'
 
 const currencyOptions = map((name) => ({ text: name, value: name }), currencies)
 
-const strategyOptions = [
-  { text: 'seller', value: 'seller' },
-  { text: 'buyer', value: 'buyer' },
-]
-
 const Create = ({ handleSubmit, error, submitting }) =>
   <form onSubmit={handleSubmit}>
     <Select name='name' placeholder='name' label='Name' options={currencyOptions}/>

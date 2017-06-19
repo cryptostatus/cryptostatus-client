@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { map } from 'utils'
-import { Button, Table, Panel, PanelHeading } from 'components'
-import { Link } from 'react-router'
+import { Table, Panel, PanelHeading } from 'components'
 
 const List = ({ balances }) =>
   <div>

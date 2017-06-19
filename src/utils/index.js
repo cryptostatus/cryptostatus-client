@@ -8,6 +8,7 @@ import isArray from 'lodash/isArray';
 import dotProp from 'dot-prop-immutable';
 import capitalize from 'lodash/capitalize';
 import lowerCase from 'lodash/lowerCase';
+import isNil from 'lodash/isNil';
 
 // get :: k -> { k: a } -> a
 export const get = curry((path, object) =>
@@ -23,14 +24,16 @@ export const update = set
 
 export const formAdapter = (f) => (...args) =>
   f(...args).catch((err) => {
-    const formatErrors = (errors) =>
-      errors && isArray(errors) ?
-        errors :
-        chain(([k, vs]) => map((v) => `${capitalize(lowerCase(k))} ${v}`, vs), toPairs(errors))
+    const formatErrors = cond([
+      [isNil, identity],
+      [isArray, identity],
+      [T, pipe(toPairs, chain(([k, vs]) => map((v) => `${capitalize(lowerCase(k))} ${v}`, vs)))]
+    ])
 
     throw new SubmissionError({
       _error: get('response.data.errors.full_messages', err)
         || formatErrors(get('response.data.errors', err))
+        || get('response.statusText', err)
         || ['Unknown error'],
     });
   })
