@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { API_CALL, REQUEST, SUCCESS, FAILURE } from 'actions/types'
 import { snakeCase, deepTransformKeys, camelCase } from 'utils'
-import * as User from 'features/User'
+import * as User from 'features/User/selectors'
 
 const request = (method, path, data) => (dispatch, getState) => {
   dispatch({
