@@ -22,12 +22,15 @@
 .form__auth--landing {
   margin-top: -7%;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1200px) {
     margin-top: 15%;
     padding-left: 0;
     padding-right: 0;
-    width: 119%;
     margin-left: -23px;
+  }
+
+  @media (max-width: 768px) {
+    width: 119%;
   }
 }
 
