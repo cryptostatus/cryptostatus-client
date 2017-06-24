@@ -1,6 +1,6 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import { Router, Route, IndexRoute, IndexRedirect } from 'react-router'
+import { Router, Route, IndexRoute } from 'react-router'
 
 import { Layout, Landing } from 'components'
 import * as User from 'features/User'

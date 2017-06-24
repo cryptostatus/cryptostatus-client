@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Header = () =>
-  <div className='col-lg-7 col-sm-12'>
+  <div className='col-lg-7 col-md-7 col-sm-12'>
     <header className='header__landing'>
       <h1>
         Cryptostatus
