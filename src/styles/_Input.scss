@@ -1,0 +1,12 @@
+.input__form {
+  background: $white;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.07);
+  padding: 20px 14px 23px;
+  border-radius: 1px;
+
+  &:focus {
+    box-shadow: none;
+    border-color: map-get($black, main);
+  }
+}

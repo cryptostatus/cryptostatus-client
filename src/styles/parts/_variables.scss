@@ -1,0 +1,24 @@
+/* Fonts */
+$font-logo: Quicksand, sans-serif;
+$font: Roboto, sans-serif;
+$bold: 500;
+$bolder: 600;
+$light: 300;
+
+/* Colors */
+$black: (
+  default: #FFFFFF,
+  main: #16181C,
+  light: #7B7B7B
+);
+
+$white: #FFFFFF;
+
+/* Size */
+$footer_height: 100px;
+
+/* Screen */
+$screen-xs: 480px !default;
+$screen-sm: 768px !default;
+$screen-md: 992px !default;
+$screen-lg: 1200px !default;
