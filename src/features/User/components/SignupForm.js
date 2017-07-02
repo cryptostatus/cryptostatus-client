@@ -18,17 +18,19 @@ const SignupForm = ({ handleSubmit, error, submitting }) => (
       </Alert>
     }
 
-    <Button type='submit'>
-      Create account
-    </Button>
+    <div className='form__submit'>
+      <Button type='submit'>
+        Create account
+      </Button>
 
-    <span className='form__hint'>
-      or
-    </span>
+      <span className='form__hint'>
+        or
+      </span>
 
-    <Button className='btn-link btn-hint' as={Link} to='/signin'>
-      sign in
-    </Button>
+      <Button className='btn-link btn-hint' as={Link} to='/signin'>
+        sign in
+      </Button>
+    </div>
   </form>
 )
 

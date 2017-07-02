@@ -1,0 +1,63 @@
+.btn-hint {
+  color: map-get($black, default) !important;
+  background: $white !important;
+  padding: 0;
+  border: 0;
+  text-decoration: underline;
+  margin-top: -1px;
+  padding-left: 0;
+  padding-right: 0;
+  width: 115%;
+  width: auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form__auth {
+  background: $white;
+  color: map-get($black, main);
+  box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.07);
+  padding: 20px 40px 30px;
+  border-radius: 3px;
+
+  h2 {
+    margin-bottom: 25px;
+  }
+
+  .btn-default {
+    background: map-get($black, main);
+    color: $white;
+  }
+}
+
+.form__submit {
+  margin-top: 35px;
+}
+
+.form__auth--landing {
+  @media (max-width: $screen-sm) {
+    width: 100%;
+  }
+}
+
+.form__hint {
+  color: rgba(0,0,0,0.44);
+  margin: 0 10px;
+}
+
+.footer__icons {
+  a {
+    margin-right: 15px;
+
+    &:hover {
+      color: map-get($black, light);
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

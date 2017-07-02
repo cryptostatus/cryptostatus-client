@@ -1,4 +1,67 @@
+/* Libs */
+@import url("https://fonts.googleapis.com/css?family=Quicksand:500|Roboto:300,400,500");
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import 'node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
-@import 'Landing.scss';
+@import 'node_modules/compass-mixins/lib/_compass.scss';
+
+/* Parts */
+@import 'parts/_variables.scss';
+@import 'parts/_mixins.scss';
+
+/* Components */
 @import 'Form.scss';
+@import 'Landing.scss';
+@import 'Input.scss';
+@import 'Button.scss';
+
+
+/* Base */
+.border-box {
+  @include box-sizing(border-box);
+}
+
+html, body {
+  @extend .border-box;
+  * {
+    font-family: $font;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+  background-color: map-get($black, main);
+  display: flex;
+  align-items: center;
+}
+
+body {
+  width: 100%;
+  height: calc(100% - #{$footer_height});
+  min-height: calc(100% - #{$footer_height});
+  margin-bottom: $footer_height
+}
+
+#root {
+  @extend .border-box;
+  height: 100%;
+  color: $white;
+  background-color: map-get($black, main);
+}
+
+.container {
+  height: 100%;
+  min-height: 100%;
+  // width: 100% !important;
+}
+
+.footer__landing {
+  @extend .container;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: $footer_height;
+  min-height: $footer_height;
+  padding: 0 30px;
+}
