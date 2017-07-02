@@ -1,0 +1,88 @@
+.crypto__wrap {
+  opacity: 0;
+  transition: 300ms;
+  max-height: 0;
+  overflow: hidden;
+  margin-top: 25px;
+  opacity: 1;
+  max-height: 1000px;
+
+  &.show {
+  }
+}
+.crypto__list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.crypto__item {
+  @extend .border-box;
+  cursor: pointer;
+  text-align: center;
+  width: 100px;
+  margin: 0 30px 25px 0;
+  transition: all 200ms;
+
+  & .item__info {
+    transition: 200ms;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    background: $grey;
+  }
+
+  input[type="radio"] {
+    display: none;
+    &:checked + .item__info {
+      background: map-get($black, default);
+    }
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @media (min-width: $screen-lg) {
+    &:nth-child(9n) {
+      margin-right: 0;
+    }
+  }
+
+  @media (min-width: $screen-md) and (max-width: $screen-lg) {
+    &:nth-child(7n) {
+      margin-right: 0;
+    }
+  }
+
+  @media (min-width: $screen-sm) and (max-width: $screen-md) {
+    &:last-child {
+      margin-right: 30px;
+    }
+  }
+
+  @media (max-width: $screen-xs) {
+    &:nth-child(2n) {
+      margin-right: 0;
+    }
+  }
+
+  .item__title {
+    font-size: 16px;
+    font-style: italic;
+  }
+
+  .item__icon svg {
+    width: 75px;
+    height: 75px;
+    fill: $white;
+  }
+
+  &:hover .item__info {
+    background: map-get($black, default);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
