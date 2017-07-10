@@ -23,19 +23,19 @@ export const init = () => (
   )
 )
 
-export const signin = (data) => (dispatch) =>
-  dispatch(Api.post('/auth/sign_in', data)).then((response) => {
+const auth = (dispatch, data, path) =>
+  dispatch(Api.post(`${path}`, data)).then((response) => {
     const accessHeaders = extractAccessHeaders(response.headers)
     dispatch(setAccessHeaders(accessHeaders))
     storage.set('authData', accessHeaders)
     return response
   })
 
-export const signup = (data) =>
-  Api.post('auth', {
-    ...data,
-    confirmSuccessUrl: expandPath('/signin'),
-  })
+export const signin = (data) => (dispatch) =>
+  auth(dispatch, data, '/auth/sign_in')
+
+export const signup = (data) => (dispatch) =>
+  auth(dispatch, data, '/auth')
 
 export const signout = () => (dispatch) => {
   dispatch({ type: USER_SIGNOUT })

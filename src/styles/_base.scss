@@ -1,0 +1,27 @@
+/* Base */
+.border-box {
+  @include box-sizing(border-box);
+}
+
+html, body {
+  @extend .border-box;
+  background-color: map-get($black, main);
+  color: $white;
+  * {
+    font-family: $font;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  padding: 0;
+  list-style-type: none;
+}

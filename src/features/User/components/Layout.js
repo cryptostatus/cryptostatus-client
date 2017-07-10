@@ -4,7 +4,7 @@ import { Button, ButtonGroup } from 'components'
 import { Link, IndexLink } from 'react-router'
 
 const Layout = ({ children, signout }) =>
-  <div>
+  <div className='user__layout'>
     <nav className='navbar navbar-default'>
       <div className='container-fluid'>
         <div className='navbar-header'>
@@ -23,21 +23,23 @@ const Layout = ({ children, signout }) =>
       </div>
     </nav>
 
-    <ButtonGroup>
-      <Button as={Link} to='/balances/new/seller' activeClassName='active'>
-        Sell crypto
-      </Button>
+    <div className='container'>
+      <ButtonGroup>
+        <Button as={Link} to='/balances/new/seller' activeClassName='active'>
+          Sell crypto
+        </Button>
 
-      <Button as={Link} to='/balances/new/buyer' activeClassName='active'>
-        Buy crypto
-      </Button>
+        <Button as={Link} to='/balances/new/buyer' activeClassName='active'>
+          Buy crypto
+        </Button>
 
-      <Button as={IndexLink} to='/balances' activeClassName='active'>
-        View balances
-      </Button>
-    </ButtonGroup>
+        <Button as={IndexLink} to='/balances' activeClassName='active'>
+          View balances
+        </Button>
+      </ButtonGroup>
 
-    {children}
+      {children}
+    </div>
   </div>
 
 Layout.propTypes = {

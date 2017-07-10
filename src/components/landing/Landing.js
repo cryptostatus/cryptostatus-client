@@ -3,7 +3,7 @@ import Main from './Main'
 import Footer from './Footer'
 
 const Landing = () =>
-  <div className='landing'>
+  <div className='container landing'>
     <Main />
     <Footer />
   </div>
