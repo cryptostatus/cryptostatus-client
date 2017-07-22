@@ -11,11 +11,11 @@ const currencyOptions = map((name) => ({ text: name, value: name }), currencies)
 
 const Create = ({ handleSubmit, error, submitting }) =>
   <form className='balance__form' onSubmit={handleSubmit}>
-    <CryptoSelect />
+    <CryptoSelect className='yellow__theme' />
 
     <div className='balance__field'>
-      <Input className='blue__theme' type='number' name='amount' placeholder='amount' label='Amount'/>
-      <Input className='blue__theme' type='number' name='invested' placeholder='invested' label='Invested'/>
+      <Input className='purple__theme' type='number' name='amount' placeholder='amount' label='Amount'/>
+      <Input className='orange__theme' type='number' name='invested' placeholder='invested' label='Invested'/>
       <Input className='blue__theme' type='number' name='profitPercent' placeholder='profit percent' label='Profit percent'/>
 
       {error &&
