@@ -2,7 +2,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { Router, Route, IndexRoute } from 'react-router'
 
-import { Layout, Landing } from 'components'
+import { Layout, Landing, SignIn } from 'components'
 import * as User from 'features/User'
 import * as Balance from 'features/Balance'
 
@@ -34,8 +34,7 @@ export default ({ store, history }) =>
         <IndexRoute component={Landing} />
 
         <Route onEnter={requireNotAuthorized(store)}>
-          <Route path='signup' component={User.SignupForm} />
-          <Route path='signin' component={User.SigninForm} />
+          <Route path='signin' component={SignIn} />
         </Route>
 
         <Route onEnter={requireAuthorized(store)} component={User.Layout}>
