@@ -5,3 +5,20 @@
   -ms-border-radius: $radius;
   border-radius: $radius;
 }
+
+@mixin button-theme($color_theme) {
+  &:hover {
+    background: map-get($color_theme, default);
+    color: $white;
+  }
+}
+
+@mixin input-theme($color_theme) {
+  &:focus {
+    border-color: map-get($color_theme, default);
+
+    &::placeholder {
+      color: map-get($color_theme, default);
+    }
+  }
+}

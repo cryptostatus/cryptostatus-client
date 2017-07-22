@@ -1,27 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Button, ButtonGroup } from 'components'
+import Header from './Header'
 import { Link, IndexLink } from 'react-router'
 
 const Layout = ({ children, signout }) =>
   <div className='user__layout'>
-    <nav className='navbar navbar-default'>
-      <div className='container-fluid'>
-        <div className='navbar-header'>
-          <Link to='/' className='navbar-brand'>
-            Cryptostatus
-          </Link>
-        </div>
-
-        <div className='collapse navbar-collapse'>
-          <div className='navbar-right'>
-            <Button type='button' navbar onClick={signout}>
-              Signout
-            </Button>
-          </div>
-        </div>
-      </div>
-    </nav>
+  <Header signout={signout} />
 
     <div className='container'>
       <ButtonGroup>

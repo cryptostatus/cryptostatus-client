@@ -9,12 +9,35 @@ $light: 300;
 $black: (
   default: #000,
   main: #23252c,
-  light: #7B7B7B
+  light: #7b7b7b
+);
+
+$blue: (
+  dark: #3f434e,
+  default: #4f73b8
+);
+
+$purple: (
+  default: #8c37ff
+);
+
+$orange: (
+  default: #ff7302
+);
+
+$yellow: (
+  default: #efad4e
 );
 
 $grey: #2e3038;
 
 $white: #FFFFFF;
+
+$border: (
+  light: 2px,
+  medium: 3px,
+  bold: 4px
+);
 
 /* Size */
 $footer_height: 100px;
