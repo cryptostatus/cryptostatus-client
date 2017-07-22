@@ -21,6 +21,10 @@
   .btn-default {
     background: map-get($black, main);
   }
+
+  @media (max-width: $screen-sm) {
+    border-radius: 0;
+  }
 }
 
 .form__submit {
@@ -30,6 +34,7 @@
 .form__auth--landing {
   @media (max-width: $screen-sm) {
     width: 100%;
+    padding: 0;
   }
 }
 
