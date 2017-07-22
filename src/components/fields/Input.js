@@ -1,14 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
+import classnames from 'classnames';
 import { Field } from 'redux-form'
 
-const Input = ({ input, placeholder, type }) => (
+const Input = ({ input, className, placeholder, type, label }) => (
   <div className='form-group'>
+    { label ? <label>{ label }</label> : '' }
     <input
       {...input}
       type={type}
-      className='form-control input__form'
+      className={classnames('form-control input__form', className)}
       placeholder={placeholder}
     />
   </div>

@@ -1,12 +1,45 @@
 .input__form {
   background: $white;
   box-shadow: 0 1px 5px rgba(0,0,0,0.05);
-  border: 1px solid rgba(0,0,0,0.07);
-  padding: 20px 14px 23px;
+  border: 0;
+  border-bottom: map-get($border, light) solid map-get($black, light);
+  padding: 20px 0;
   border-radius: 1px;
+  background: transparent;
+
+  &::placeholder {
+    color: map-get($black, light);
+  }
+
+  &.black__theme {
+    color: map-get($black, default);
+
+    &:focus {
+      border-color: map-get($black, default);
+
+      &::placeholder {
+        color: map-get($black, default);
+      }
+    }
+  }
+
+  &.blue__theme {
+    @include input-theme($blue)
+  }
+
+  &.orange__theme {
+    @include input-theme($orange)
+  }
+
+  &.purple__theme {
+    @include input-theme($purple)
+  }
+
+  &.yellow__theme {
+    @include input-theme($yellow)
+  }
 
   &:focus {
     box-shadow: none;
-    border-color: map-get($black, main);
   }
 }

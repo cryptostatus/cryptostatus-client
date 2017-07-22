@@ -1,6 +1,3 @@
-.btn {
-  outline: none !important;
-}
 .btn-hint {
   color: map-get($black, light);
   background: $white !important;
@@ -12,4 +9,46 @@
   padding-right: 0;
   width: 115%;
   width: auto;
+}
+
+.btn {
+  padding: 8px 12px;
+  font-size: 10px;
+  border-width: map-get($border, light);
+  background: transparent;
+  color: map-get($black, light);
+  border-color: map-get($black, light);
+
+  &:hover {
+    background: transparent;
+  }
+
+  &.black__theme {
+    color: map-get($black, default);
+    border-color: map-get($black, default);
+  }
+
+  &.blue__theme {
+    @include button-theme($blue);
+  }
+
+  &.purple__theme {
+    @include button-theme($purple);
+  }
+
+  &.orange__theme {
+    @include button-theme($orange);
+  }
+
+  &.yellow__theme {
+    @include button-theme($yellow);
+  }
+}
+
+button {
+  @extend .btn;
+}
+
+.ladda-button {
+  @extend .btn;
 }

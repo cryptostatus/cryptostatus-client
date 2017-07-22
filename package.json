@@ -16,6 +16,7 @@
     "react-cryptocoins": "^1.0.2",
     "react-dom": "^15.5.4",
     "react-feather": "^1.0.4",
+    "react-ladda": "^5.0.7",
     "react-redux": "^5.0.5",
     "react-router": "^3.0.5",
     "react-router-redux": "^4.0.8",
@@ -34,7 +35,7 @@
     "build-css": "node-sass-chokidar src/ -o src/styles/dist",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/styles/dist --watch --recursive",
     "start-js": "react-scripts start",
-    "start": "npm-run-all -p watch-css start-js",
+    "start": "PORT=3002 npm-run-all -p watch-css start-js",
     "build": "npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
