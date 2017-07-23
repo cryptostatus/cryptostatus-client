@@ -61,6 +61,6 @@
   align-items: center;
 
   a {
-    color: $white;
+    color: map-get($white, default);
   }
 }

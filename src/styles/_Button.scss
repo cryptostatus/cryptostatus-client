@@ -1,16 +1,3 @@
-.btn-hint {
-  color: map-get($black, light);
-  background: $white !important;
-  padding: 0;
-  border: 0;
-  text-decoration: underline;
-  margin-top: -1px;
-  padding-left: 0;
-  padding-right: 0;
-  width: 115%;
-  width: auto;
-}
-
 .btn {
   padding: 8px 12px;
   font-size: 10px;
@@ -21,6 +8,10 @@
 
   &:hover {
     background: transparent;
+  }
+
+  &:focus {
+    outline: none !important;
   }
 
   &.black__theme {
@@ -43,12 +34,39 @@
   &.yellow__theme {
     @include button-theme($yellow);
   }
+
+  &.pink__theme {
+    @include button-theme($pink);
+  }
+
+  &.white__theme {
+    @include button-theme($white);
+  }
 }
 
 button {
   @extend .btn;
+  transition: map-get($transition, cubic);
 }
 
 .ladda-button {
   @extend .btn;
+  transition: map-get($transition, cubic) !important;
+}
+
+.ladda-label {
+  transition: none !important;
+}
+
+.btn-hint {
+  color: map-get($black, light);
+  background: map-get($white, default) !important;
+  padding: 0;
+  border: 0;
+  text-decoration: underline;
+  margin-top: -1px;
+  padding-left: 0;
+  padding-right: 0;
+  width: 115%;
+  width: auto;
 }

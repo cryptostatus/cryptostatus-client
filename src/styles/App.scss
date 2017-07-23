@@ -1,7 +1,7 @@
 /* Libs */
 @import url("https://fonts.googleapis.com/css?family=Quicksand:500|Roboto:300,400,500");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/Ladda/1.0.0/ladda.min.css");
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+@import 'lib/ladda.scss';
 @import 'node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
 @import 'node_modules/compass-mixins/lib/_compass.scss';
 
@@ -18,4 +18,6 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import 'Button.scss';
 @import 'CryptoSelect.scss';
 @import 'Container.scss';
+@import 'Alert.scss';
 @import 'user/Header.scss';
+@import 'balance/Create.scss';

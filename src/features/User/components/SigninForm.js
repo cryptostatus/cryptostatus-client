@@ -5,7 +5,7 @@ import { Button, Alert } from 'components'
 import { Link } from 'react-router'
 
 const SigninForm = ({ handleSubmit, error, submitting }) =>
-  <form onSubmit={handleSubmit}  className='form__auth'>
+  <form onSubmit={handleSubmit}  className='form__auth label__off'>
     <h2>Sign In</h2>
 
     <Input type='email' name='email' placeholder='email' label='Email' />

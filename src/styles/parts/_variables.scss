@@ -26,12 +26,26 @@ $orange: (
 );
 
 $yellow: (
-  default: #efad4e
+  default: #efc54e,
+  dark: #efad4e
+);
+
+$pink: (
+  default: #ec3766
 );
 
 $grey: #2e3038;
 
-$white: #FFFFFF;
+$white: (
+  default: #ffffff
+);
+
+$red: (
+  default: #b01e1f
+);
+
+/* Size */
+$footer_height: 100px;
 
 $border: (
   light: 2px,
@@ -39,11 +53,16 @@ $border: (
   bold: 4px
 );
 
-/* Size */
-$footer_height: 100px;
+$border_radius: 2px;
 
 /* Screen */
 $screen-xs: 480px !default;
 $screen-sm: 768px !default;
 $screen-md: 992px !default;
 $screen-lg: 1200px !default;
+
+/* Transition */
+$transition: (
+  ease: 0.2s ease,
+  cubic: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+)

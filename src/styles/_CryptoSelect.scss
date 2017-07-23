@@ -1,7 +1,7 @@
 .crypto__wrap {
-  width: 300px;
+  width: 280px;
   overflow-y: scroll;
-  max-height: 325px;
+  max-height: 332px;
   margin-right: 25px;
 }
 .crypto__list {
@@ -9,7 +9,7 @@
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
-  padding-right: 15px;
+  padding-right: 5px;
 }
 .crypto__item {
   @extend .border-box;
@@ -17,14 +17,14 @@
   text-align: center;
   width: 80px;
   margin: 0 15px 20px 0;
-  transition: all 200ms;
+  transition: map-get($transition, ease);
 
   .item__info {
-    transition: 200ms;
     width: 100%;
     height: 100%;
     padding: 6px;
     background: $grey;
+    transition: map-get($transition, ease);
   }
 
   input[type="radio"] {
@@ -54,7 +54,7 @@
     svg {
       width: 40px;
       height: 40px;
-      fill: $white;
+      fill: map-get($white, default);
     }
   }
 
@@ -62,9 +62,20 @@
     background: map-get($black, default);
   }
 
-  &:active {
-    transform: scale(0.95);
+  &.yellow__theme {
+
+    &:hover .item__info {
+      background: map-get($yellow, default);
+    }
+
+    input[type="radio"] {
+      display: none;
+      &:checked + .item__info {
+        background: map-get($yellow, dark);
+      }
+    }
   }
+
 }
 
 .balance__form {
