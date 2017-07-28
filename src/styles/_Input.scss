@@ -1,11 +1,12 @@
 .input__form {
-  background: $white;
+  background: map-get($white, default);
   box-shadow: 0 1px 5px rgba(0,0,0,0.05);
   border: 0;
   border-bottom: map-get($border, light) solid map-get($black, light);
   padding: 20px 0;
-  border-radius: 1px;
+  border-radius: $border_radius;
   background: transparent;
+  transition: map-get($transition, cubic);
 
   &::placeholder {
     color: map-get($black, light);
@@ -41,5 +42,25 @@
 
   &:focus {
     box-shadow: none;
+  }
+}
+
+.form-group {
+  position: relative;
+  padding-top: 25px;
+
+  label {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &.label__off {
+    padding-top: 0;
+    position: inherit;
+
+    label {
+      position: inherit;
+    }
   }
 }

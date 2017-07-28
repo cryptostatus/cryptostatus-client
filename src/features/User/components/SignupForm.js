@@ -5,7 +5,7 @@ import { FormButton, Button, Alert } from 'components'
 import { Link } from 'react-router'
 
 const SignupForm = ({ handleSubmit, error, submitting }) => (
-  <form onSubmit={handleSubmit} className='form__auth'>
+  <form onSubmit={handleSubmit} className='form__auth label__off'>
     <h2>Sign Up</h2>
 
     <Input className='black__theme' type='email' name='email' placeholder='email' />

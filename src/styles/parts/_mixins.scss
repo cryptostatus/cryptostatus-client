@@ -8,8 +8,8 @@
 
 @mixin button-theme($color_theme) {
   &:hover {
-    background: map-get($color_theme, default);
-    color: $white;
+    border-color: map-get($color_theme, default);
+    color: map-get($color_theme, default);
   }
 }
 
@@ -17,7 +17,7 @@
   &:focus {
     border-color: map-get($color_theme, default);
 
-    &::placeholder {
+    & + label {
       color: map-get($color_theme, default);
     }
   }

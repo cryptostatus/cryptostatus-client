@@ -5,13 +5,13 @@ import { Field } from 'redux-form'
 
 const Input = ({ input, className, placeholder, type, label }) => (
   <div className='form-group'>
-    { label ? <label>{ label }</label> : '' }
     <input
       {...input}
       type={type}
       className={classnames('form-control input__form', className)}
       placeholder={placeholder}
     />
+    { label ? <label>{ label }</label> : '' }
   </div>
 )
 

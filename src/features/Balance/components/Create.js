@@ -24,7 +24,7 @@ const Create = ({ handleSubmit, error, submitting }) =>
         </Alert>
       }
 
-      <FormButton className='blue__theme' type='submit' loading={submitting} text='Create balance' />
+      <FormButton className='white__theme' type='submit' loading={submitting} text='Create balance' />
     </div>
   </form>
 

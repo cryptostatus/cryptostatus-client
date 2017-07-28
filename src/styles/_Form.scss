@@ -1,21 +1,25 @@
+.form-control {
+  transition: map-get($transition, cubic);
+}
+
 .form-group {
   margin-bottom: 20px;
 }
 
 .form__auth {
-  background: $white;
+  background: map-get($white, default);
   color: map-get($black, main);
   box-shadow: 0 1px 5px rgba(0,0,0,0.05);
   border: 1px solid rgba(0,0,0,0.07);
   padding: 20px 40px 30px;
-  border-radius: 3px;
+  border-radius: $border_radius;
 
   h2 {
     margin-bottom: 25px;
   }
 
   button.btn-default {
-    color: $white;
+    color: map-get($white, default);
   }
 
   .btn-default {
