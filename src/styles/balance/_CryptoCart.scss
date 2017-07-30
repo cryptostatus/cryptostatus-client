@@ -1,0 +1,96 @@
+.crypto-cart-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.crypto-cart {
+  display: flex;
+  flex-direction: column;
+  margin: 0 55px 30px 0;
+  width: 100%;
+  max-width: 325px;
+
+  @media (max-width: $screen-lg) {
+    max-width: none;
+    justify-content: space-between;
+    margin-right: 60px;
+    width: calc(50% - 30px);
+
+    &:nth-child(2n) {
+      margin-right: 0;
+    }
+  }
+
+  @media (max-width: $screen-sm) {
+    width: 100%;
+    max-width: none;
+    margin: 0 0 50px 0;
+  }
+}
+
+.crypto-cart-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid map-get($black, light);
+}
+
+.crypto-cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid map-get($black, light);
+  padding: 15px 0;
+
+  h3 {
+    font-size: 18px;
+    margin: 0;
+  }
+
+  span {
+    font-size: 20px;
+  }
+}
+
+.crypto-cart-column {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-direction: column;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.crypto-cart-name {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: map-get($black, light);
+}
+
+.crypto-cart-value {
+  font-size: 26px;
+}
+
+.crypto-cart-value.profit {
+  position: relative;
+  color: map-get($red, default);
+  padding-left: 16px;
+
+  &:before {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '-'
+  }
+
+  &.positive {
+    color: map-get($green, default);
+
+    &:before {
+      content: '+';
+    }
+  }
+}

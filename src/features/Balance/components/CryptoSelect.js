@@ -2,7 +2,7 @@ import React from 'react'
 import * as Coins from 'react-cryptocoins';
 import classnames from 'classnames'
 
-import currencies from 'utils/currencies'
+import { cryptoCurrencies } from 'utils/currencies'
 
 const CurrenciesIcon = ({ currency, index, className }) =>
   <label key={index} className={classnames('crypto__item', className)} for={`currency-${index}`}>
@@ -21,7 +21,7 @@ const CryptoSelect = ({ className }) =>
   <div className='crypto__wrap'>
     <div className='crypto__list'>
 
-      { currencies.map((currency, index) =>
+      { cryptoCurrencies.map((currency, index) =>
         <CurrenciesIcon index={index} currency={currency} className={className} />
       )}
 

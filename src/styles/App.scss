@@ -6,8 +6,9 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import 'node_modules/compass-mixins/lib/_compass.scss';
 
 /* Parts */
-@import 'parts/_variables.scss';
-@import 'parts/_mixins.scss';
+@import 'parts/variables.scss';
+@import 'parts/mixins.scss';
+@import 'parts/crypto_colors.scss';
 
 @import 'base';
 
@@ -16,8 +17,9 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import 'Landing.scss';
 @import 'Input.scss';
 @import 'Button.scss';
-@import 'CryptoSelect.scss';
 @import 'Container.scss';
 @import 'Alert.scss';
 @import 'user/Header.scss';
+@import 'balance/CryptoSelect.scss';
 @import 'balance/Create.scss';
+@import 'balance/CryptoCart.scss';

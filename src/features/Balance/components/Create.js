@@ -1,13 +1,13 @@
 import React from 'react'
 import { reduxForm } from 'redux-form'
-import currencies from 'utils/currencies'
+import { cryptoCurrencies } from 'utils/currencies'
 import { map } from 'utils'
 
 import { FormButton, Alert } from 'components'
 import { Input, Select } from 'components/fields'
 import CryptoSelect from './CryptoSelect'
 
-const currencyOptions = map((name) => ({ text: name, value: name }), currencies)
+const currencyOptions = map((name) => ({ text: name, value: name }), cryptoCurrencies)
 
 const Create = ({ handleSubmit, error, submitting }) =>
   <form className='balance__form' onSubmit={handleSubmit}>

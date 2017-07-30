@@ -1,0 +1,37 @@
+$crypto-colors: (
+  'btc': #FF7300,
+  'eth': #8C01FF,
+  'ltc': #B4B4B4,
+  'rep': #EC3766,
+  'zec': #F0AD4E,
+  'lsk': #38E6B2,
+  'xmr': #CF4900,
+  'etc': #4FB858,
+  'xrp': #27A2DB,
+  'dash': #1E73BE,
+  'str': #08B5E5,
+  'maid': #5592D7,
+  'fct': #417BA4,
+  'xem': #FABE00,
+  'steem': #4BA2F2,
+  'doge': #F2A51F,
+  'sdc': #E2213D,
+  'bts': #00A9E0,
+  'game': #7CBF3F,
+  'ardr': #1162A1,
+  'dcr': #47ACD7,
+  'sjcx': #0014FF,
+  'sc': #009688,
+  'ioc': #84D0F4,
+  'gnt': #01d3e0
+);
+
+@each $color in $crypto-colors {
+  .crypto-color-#{nth($color, 1)} {
+    color: nth($color, 2) !important;
+  }
+}
+
+@function crypto-color($color) {
+  @return map-get($crypto-colors, $color)
+}

@@ -4,12 +4,12 @@ import { always, formAdapter } from 'utils'
 import * as actions from './actions'
 import { createStructuredSelector } from 'reselect'
 import { push } from 'react-router-redux'
-import currencies from 'utils/currencies'
+import { cryptoCurrencies } from 'utils/currencies'
 
 const mapStateToProps = createStructuredSelector({
   form: always('Balance.Create'),
   initialValues: always({
-    name: currencies[0],
+    name: cryptoCurrencies[0],
   }),
 })
 

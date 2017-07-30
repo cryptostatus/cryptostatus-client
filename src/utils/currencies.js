@@ -1,4 +1,4 @@
-export default [
+export const cryptoCurrencies = [
   "Btc",
   "Eth",
   "Ltc",
@@ -21,3 +21,8 @@ export default [
   "Sjcx",
   "Gnt",
 ]
+
+export const currenciesFormat = {
+  USD: (value) => new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(value),
+  EUR: (value) => new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(value)
+}
