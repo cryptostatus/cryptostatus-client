@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import LaddaButton, { SLIDE_LEFT, XL } from 'react-ladda';
+import LaddaButton, { SLIDE_LEFT } from 'react-ladda';
 import classnames from 'classnames';
 
 const FormButton = ({ className, loading, text, ...rest }) =>
@@ -11,7 +11,6 @@ const FormButton = ({ className, loading, text, ...rest }) =>
     data-spinner-size={30}
     data-spinner-color="#ddd"
     data-spinner-lines={12}
-    data-size={XL}
     {...rest}
   >
     { text }

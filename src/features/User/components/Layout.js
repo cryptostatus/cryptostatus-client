@@ -10,15 +10,15 @@ const Layout = ({ children, signout }) =>
 
     <div className='container'>
       <ButtonGroup>
-        <Button as={Link} to='/balances/new/seller' activeClassName='active'>
+        <Button className='white__theme' as={Link} to='/balances/new/seller' activeClassName='active'>
           Sell crypto
         </Button>
 
-        <Button as={Link} to='/balances/new/buyer' activeClassName='active'>
+        <Button className='white__theme' as={Link} to='/balances/new/buyer' activeClassName='active'>
           Buy crypto
         </Button>
 
-        <Button as={IndexLink} to='/balances' activeClassName='active'>
+        <Button className='white__theme' as={IndexLink} to='/balances' activeClassName='active'>
           View balances
         </Button>
       </ButtonGroup>

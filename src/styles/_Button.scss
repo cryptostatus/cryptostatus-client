@@ -1,16 +1,19 @@
 .btn {
   padding: 8px 12px;
-  font-size: 10px;
+  margin: 0;
+  font-size: 14px;
   border-width: map-get($border, light);
   background: transparent;
   color: map-get($black, light);
   border-color: map-get($black, light);
+  transition: map-get($transition, cubic);
 
   &:hover {
     background: transparent;
   }
 
   &:focus {
+    color: map-get($black, light);
     outline: none !important;
   }
 
@@ -46,12 +49,10 @@
 
 button {
   @extend .btn;
-  transition: map-get($transition, cubic);
 }
 
 .ladda-button {
   @extend .btn;
-  transition: map-get($transition, cubic) !important;
 }
 
 .ladda-label {
