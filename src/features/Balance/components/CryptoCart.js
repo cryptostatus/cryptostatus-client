@@ -9,8 +9,8 @@ const CryptoCart = (props) => {
 
   return (
     <div>
-      <div className='crypto-cart-header'>
-        <h3 className={ `crypto-color-${props.name.toLowerCase()}` }>{ props.name }</h3>
+      <div className={`crypto-cart-header crypto-color-${props.name.toLowerCase()}`}>
+        <h3>{ props.name }</h3>
         <span>{ props.amount }</span>
       </div>
 

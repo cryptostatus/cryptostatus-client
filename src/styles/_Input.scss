@@ -6,6 +6,7 @@
   padding: 20px 0;
   border-radius: $border_radius;
   background: transparent;
+  color: map-get($white, default);
   transition: map-get($transition, cubic);
 
   &::placeholder {

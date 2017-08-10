@@ -14,7 +14,7 @@ const Header = ({ signout }) =>
 
       <div className='collapse navbar-collapse'>
         <div className='navbar-right'>
-          <Button type='button' navbar onClick={signout}>
+          <Button className='white__theme' type='button' navbar onClick={signout}>
             Signout
           </Button>
         </div>

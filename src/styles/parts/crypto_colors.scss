@@ -26,12 +26,6 @@ $crypto-colors: (
   'gnt': #01d3e0
 );
 
-@each $color in $crypto-colors {
-  .crypto-color-#{nth($color, 1)} {
-    color: nth($color, 2) !important;
-  }
-}
-
 @function crypto-color($color) {
   @return map-get($crypto-colors, $color)
 }

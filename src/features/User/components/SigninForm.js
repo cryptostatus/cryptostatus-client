@@ -1,15 +1,15 @@
 import React from 'react'
 
 import { Input } from 'components/fields'
-import { Button, Alert } from 'components'
+import { FormButton, Button, Alert } from 'components'
 import { Link } from 'react-router'
 
 const SigninForm = ({ handleSubmit, error, submitting }) =>
   <form onSubmit={handleSubmit}  className='form__auth label__off'>
     <h2>Sign In</h2>
 
-    <Input type='email' name='email' placeholder='email' label='Email' />
-    <Input type='password' name='password' placeholder='password' label='Email' />
+    <Input className='black__theme' type='email' name='email' placeholder='email' />
+    <Input className='black__theme' type='password' name='password' placeholder='password' />
 
     {error &&
       <Alert type='danger'>
@@ -18,16 +18,14 @@ const SigninForm = ({ handleSubmit, error, submitting }) =>
     }
 
     <div className='form__submit'>
-      <Button type='submit'>
-        Login
-      </Button>
+      <FormButton className='black__theme' type='submit' loading={submitting} text='Login' />
 
       <span className='form__hint'>
         or
       </span>
 
       <Button className='btn-link btn-hint' as={Link} to='/'>
-        Sign Up
+        sign up
       </Button>
     </div>
   </form>

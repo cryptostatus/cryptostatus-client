@@ -39,12 +39,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid map-get($black, light);
   padding: 15px 0;
+
+  @each $color in $crypto-colors {
+    &.crypto-color-#{nth($color, 1)} {
+      border-bottom: 1px solid nth($color, 2) !important;
+    }
+  }
 
   h3 {
     font-size: 18px;
     margin: 0;
+    color: map-get($white, default);
   }
 
   span {

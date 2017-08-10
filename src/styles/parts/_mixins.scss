@@ -7,7 +7,7 @@
 }
 
 @mixin button-theme($color_theme) {
-  &:hover {
+  &:hover, &.active {
     border-color: map-get($color_theme, default);
     color: map-get($color_theme, default);
   }
