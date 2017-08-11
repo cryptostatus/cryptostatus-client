@@ -1,6 +1,6 @@
 .input__form {
   background: map-get($white, default);
-  box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 5px $white;
   border: 0;
   border-bottom: map-get($border, light) solid map-get($black, light);
   padding: 20px 0;
