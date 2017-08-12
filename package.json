@@ -16,6 +16,7 @@
     "react-cryptocoins": "^1.0.2",
     "react-dom": "^15.5.4",
     "react-feather": "^1.0.4",
+    "react-ga": "^2.2.0",
     "react-ladda": "^5.0.7",
     "react-redux": "^5.0.5",
     "react-router": "^3.0.5",

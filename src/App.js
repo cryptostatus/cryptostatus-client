@@ -6,6 +6,8 @@ import { Layout, Landing, SignIn } from 'components'
 import * as User from 'features/User'
 import * as Balance from 'features/Balance'
 
+import ReactGA from 'react-ga'
+
 const redirect = ({ location }, replace, redirectPath) => replace({
   pathname: redirectPath,
   state: { nextPathname: location.pathname },
@@ -27,9 +29,16 @@ const requireAuthorized = (store) => (nextState, replace) => {
   }
 }
 
+ReactGA.initialize('UA-104424913-1')
+
+function logPageView() {
+  ReactGA.set({ page: window.location.pathname + window.location.search });
+  ReactGA.pageview(window.location.pathname + window.location.search);
+}
+
 export default ({ store, history }) =>
   <Provider store={store}>
-    <Router history={history}>
+    <Router history={history} onUpdate={logPageView}>
       <Route path='/' component={Layout}>
         <IndexRoute component={Landing} />
 
