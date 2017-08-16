@@ -1,0 +1,60 @@
+.toggler-trigger__wrap {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+.toggler-trigger__container {
+  width: 33px;
+  height: 16px;
+  background-color: map-get($black, light);
+  margin-left: 3px;
+  margin-right: 3px;
+  position: relative;
+  border-radius: 8px;
+  @media (min-width: $screen-xs) {
+    width: 51px;
+    height: 24px;
+    border-radius: 12px;
+  }
+  @media (min-width: $screen-sm) {
+    width: 49px;
+    height: 24px;
+    border-radius: 12px;
+  }
+  label {
+    display: block;
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    cursor: pointer;
+    background-color: map-get($black, default);
+    border-radius: 50%;
+    transition: all .4s ease;
+    @media (min-width: $screen-xs) {
+      width: 20px;
+      height: 20px;
+      top: 2px;
+      left: 2px;
+    }
+  }
+  input[type=checkbox] {
+    visibility: hidden;
+    &:checked + label {
+      left: 18px;
+      @media (min-width: $screen-xs) {
+        left: 27px;
+      }
+    }
+  }
+}
+.toggler-trigger__desc {
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 8px;
+  font-weight: 700;
+  @media (min-width: $screen-xs) {
+    font-size: 12px;
+  }
+}

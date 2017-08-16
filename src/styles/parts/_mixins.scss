@@ -13,12 +13,16 @@
   }
 }
 
-@mixin input-theme($color_theme) {
+@mixin input-focus-theme($color_theme) {
   &:focus {
-    border-color: map-get($color_theme, default);
+    @include input-default-theme($color_theme);
+  }
+}
 
-    & + label {
-      color: map-get($color_theme, default);
-    }
+@mixin input-default-theme($color_theme) {
+  border-color: map-get($color_theme, default);
+
+  & + label {
+    color: map-get($color_theme, default);
   }
 }

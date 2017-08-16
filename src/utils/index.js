@@ -9,6 +9,8 @@ import dotProp from 'dot-prop-immutable';
 import capitalize from 'lodash/capitalize';
 import lowerCase from 'lodash/lowerCase';
 import isNil from 'lodash/isNil';
+import transform from 'lodash/transform';
+import isString from 'lodash/isString';
 
 // get :: k -> { k: a } -> a
 export const get = curry((path, object) =>
@@ -23,19 +25,21 @@ export const set = curry((path, value, object) =>
 export const update = set
 
 export const formAdapter = (f) => (...args) =>
-  f(...args).catch((err) => {
+  f(...args).catch((reject) => {
+    const errorReject = camelCaseKeys(reject)
+
     const formatErrors = cond([
       [isNil, identity],
       [isArray, identity],
       [T, pipe(toPairs, chain(([k, vs]) => map((v) => `${capitalize(lowerCase(k))} ${v}`, vs)))]
     ])
 
-    throw new SubmissionError({
-      _error: get('response.data.errors.full_messages', err)
-        || formatErrors(get('response.data.errors', err))
-        || get('response.statusText', err)
-        || ['Unknown error'],
-    });
+    let error = get('response.data.errors', errorReject)
+      || formatErrors(get('response.data.errors', errorReject))
+      || get('response.statusText', errorReject) || 'Unknow error'
+
+    error = isArray(error) || isString(error) ? { _error: error } : error
+    throw new SubmissionError(error)
   })
 
 export const map = curry((f, x) => lodashMap(x, f));
@@ -63,5 +67,7 @@ export const deepTransformKeys = curry((f, value) => cond([
   [T, identity],
 ])(value))
 
-export { default as componentDidMount } from './componentDidMount'
-export { cond, isObject, snakeCase, pipe, fromPairs, isArray, T, identity, props, pick, reduce, uniq, always, camelCase, chain };
+export const camelCaseKeys = (object) => deepTransformKeys(camelCase, object)
+export const snakeCaseKeys = (object) => deepTransformKeys(snakeCase, object)
+
+export { cond, isObject, snakeCase, pipe, fromPairs, isArray, T, identity, props, pick, reduce, uniq, always, camelCase, chain, transform };

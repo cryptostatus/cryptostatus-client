@@ -1,61 +1,27 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import { Router, Route, IndexRoute } from 'react-router'
-
-import { Layout, Landing, SignIn } from 'components'
-import * as User from 'features/User'
-import * as Balance from 'features/Balance'
-
+import { Router, Route, IndexRoute, Switch } from 'react-router'
+import { ConnectedRouter } from 'react-router-redux'
 import ReactGA from 'react-ga'
 
-const redirect = ({ location }, replace, redirectPath) => replace({
-  pathname: redirectPath,
-  state: { nextPathname: location.pathname },
-})
-
-const requireNotAuthorized = (store) => (nextState, replace) => {
-  const user = User.userSelector(store.getState())
-
-  if (user) {
-    redirect(nextState, replace, '/balances')
-  }
-}
-
-const requireAuthorized = (store) => (nextState, replace) => {
-  const user = User.userSelector(store.getState())
-
-  if (!user) {
-    redirect(nextState, replace, '/signin')
-  }
-}
-
-ReactGA.initialize('UA-104424913-1')
-
-function logPageView() {
-  ReactGA.set({ page: window.location.pathname + window.location.search });
-  ReactGA.pageview(window.location.pathname + window.location.search);
-}
+import { AuthRoute } from 'routes'
+import { Landing, SignIn } from 'components'
+import Layouts from 'components/layouts'
+import Balance from 'components/balances'
+import * as path from 'routes/path'
 
 export default ({ store, history }) =>
   <Provider store={store}>
-    <Router history={history} onUpdate={logPageView}>
-      <Route path='/' component={Layout}>
-        <IndexRoute component={Landing} />
+    <ConnectedRouter history={history}>
+      <Layouts.LayoutGA>
+        <Switch>
+          <AuthRoute path={path.ROOT} component={Landing} accessForAuthed={false} exact />
+          <AuthRoute path={path.SIGN_IN} component={SignIn} accessForAuthed={false} exact />
+          <AuthRoute path={path.BALANCES} layout={Layouts.AuthLayout} component={Balance.Dashboard} exact />
+          <AuthRoute path={path.BALANCES_CREATE} layout={Layouts.AuthLayout} component={Balance.Create} exact />
 
-        <Route onEnter={requireNotAuthorized(store)}>
-          <Route path='signin' component={SignIn} />
-        </Route>
-
-        <Route onEnter={requireAuthorized(store)} component={User.Layout}>
-          <Route path='balances'>
-            <IndexRoute component={Balance.List} />
-
-            <Route path='new/seller' component={Balance.Create} strategy='seller'/>
-            <Route path='new/buyer' component={Balance.Create} strategy='buyer'/>
-          </Route>
-        </Route>
-
-        <Route path='*' component={() => <h1>Route not found</h1>}/>
-      </Route>
-    </Router>
+          <Route component={() => <h1>404</h1>} />
+        </Switch>
+        </Layouts.LayoutGA>
+    </ConnectedRouter>
   </Provider>

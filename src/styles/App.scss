@@ -1,9 +1,10 @@
 /* Libs */
 @import url("https://fonts.googleapis.com/css?family=Quicksand:500|Roboto:300,400,500");
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
-@import 'lib/ladda.scss';
 @import 'node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
 @import 'node_modules/compass-mixins/lib/_compass.scss';
+
+@import 'lib/ladda.scss';
 
 /* Parts */
 @import 'parts/variables.scss';
@@ -13,12 +14,14 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import 'base';
 
 /* Components */
-@import 'Form.scss';
-@import 'Landing.scss';
-@import 'Input.scss';
-@import 'Button.scss';
-@import 'Container.scss';
-@import 'Alert.scss';
+@import 'components/Form.scss';
+@import 'components/Landing.scss';
+@import 'components/Input.scss';
+@import 'components/Button.scss';
+@import 'components/Container.scss';
+@import 'components/Alert.scss';
+@import 'components/Toggler.scss';
+
 @import 'user/Header.scss';
 @import 'balance/CryptoSelect.scss';
 @import 'balance/Create.scss';
