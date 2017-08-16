@@ -7,6 +7,8 @@ import App from 'App'
 
 import 'styles/dist/styles/App.css'
 
+User.actions.checkOAuthCredentials()
+
 ReactDOM.render(
   <App
     store={store}

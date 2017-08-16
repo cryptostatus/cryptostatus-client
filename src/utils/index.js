@@ -11,6 +11,8 @@ import lowerCase from 'lodash/lowerCase';
 import isNil from 'lodash/isNil';
 import transform from 'lodash/transform';
 import isString from 'lodash/isString';
+import isEmpty from 'lodash/isEmpty';
+import pickBy from 'lodash/pickBy';
 
 // get :: k -> { k: a } -> a
 export const get = curry((path, object) =>
@@ -70,4 +72,4 @@ export const deepTransformKeys = curry((f, value) => cond([
 export const camelCaseKeys = (object) => deepTransformKeys(camelCase, object)
 export const snakeCaseKeys = (object) => deepTransformKeys(snakeCase, object)
 
-export { cond, isObject, snakeCase, pipe, fromPairs, isArray, T, identity, props, pick, reduce, uniq, always, camelCase, chain, transform };
+export { cond, isObject, snakeCase, pipe, fromPairs, isArray, T, identity, props, pick, reduce, uniq, always, camelCase, chain, transform, pickBy, isEmpty, isNil };

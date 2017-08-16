@@ -1,19 +1,20 @@
 import { replace } from 'react-router-redux'
 
 import Api from '../api/actions'
-import { pick, expandPath } from 'utils'
+import { pick, expandPath, pickBy, isNil, isEmpty } from 'utils'
+import urlParams from 'utils/urlParams'
 import { USER_SET_ACCESS_HEADERS, USER_SIGNOUT, VALIDATE_TOKEN } from './types'
 import * as storage from 'storage'
 import * as path from 'routes/path'
 import { SUCCESS } from '../api/types'
 
-const extractAccessHeaders = pick([
+const headersKeys = [
   'access-token',
-  'token-type',
-  'expiry',
   'client',
   'uid',
-])
+]
+
+const extractAccessHeaders = pick(headersKeys)
 
 export const setAccessHeaders = (headers) => {
   return {
@@ -22,9 +23,10 @@ export const setAccessHeaders = (headers) => {
   }
 }
 
-export const init = () => (
-  setAccessHeaders(storage.get('authData'))
-)
+export const checkOAuthCredentials = () => {
+  const urlHeaders = pickBy(urlParams(headersKeys, true), (value, key) => !isNil(value))
+  if(!isEmpty(urlHeaders)) { storage.set('authData', urlHeaders) }
+}
 
 const auth = (dispatch, path, type, data) =>
   dispatch(Api.post(`${path}`, type, { data }))
