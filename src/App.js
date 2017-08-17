@@ -15,8 +15,8 @@ export default ({ store, history }) =>
     <ConnectedRouter history={history}>
       <Layouts.LayoutGA>
         <Switch>
-          <AuthRoute path={path.ROOT} component={Landing} accessForAuthed={false} exact />
-          <AuthRoute path={path.SIGN_IN} component={SignIn} accessForAuthed={false} exact />
+          <Route path={path.ROOT} component={Landing} exact />
+          <Route path={path.SIGN_IN} component={SignIn} exact />
           <AuthRoute path={path.BALANCES} layout={Layouts.AuthLayout} component={Balance.Dashboard} exact />
           <AuthRoute path={path.BALANCES_CREATE} layout={Layouts.AuthLayout} component={Balance.Create} exact />
 
