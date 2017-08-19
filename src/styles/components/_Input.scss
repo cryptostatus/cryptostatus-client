@@ -45,8 +45,9 @@
     box-shadow: none;
   }
 
-  .form-group__input--error & {
+  &.error__theme {
     @include input-default-theme($red)
+    @include input-focus-theme($red)
   }
 }
 

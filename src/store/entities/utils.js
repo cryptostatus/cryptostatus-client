@@ -1,5 +1,5 @@
 import normalize from './schemas'
-import { transform, pickBy, keys, forIn, filter, uniq } from 'lodash'
+import { transform, pickBy, keys, forIn, filter, uniq, isEmpty } from 'lodash'
 import dotProp from 'dot-prop-immutable'
 
 const initialState = {
@@ -9,9 +9,12 @@ const initialState = {
 
 const transformEntities = (state, data, callback) => {
   const normalizedData = normalize(data)
-  return transform(normalizedData.entities, (result, entities, name) => {
+
+  const transformedEntities = transform(normalizedData.entities, (result, entities, name) => {
     return result[name] = callback(state, entities, name)
   }, {})
+
+  return { ...state, ...transformedEntities }
 }
 
 const complementEntities = (state, entities, name) => {
@@ -38,7 +41,7 @@ const sliceEnities = (state, entities, name) => {
 
   return {
     ...stateEntities,
-    byId: pickBy(stateEntities.byId, ({ id }) => !keys(entities).includes(id)),
+    byId: pickBy(stateEntities.byId, ({ id }) => !keys(entities).map(Number).includes(id)),
     allIds: uniq(filter(stateEntities.allIds, (id) => !keys(entities).includes(id))),
   }
 }

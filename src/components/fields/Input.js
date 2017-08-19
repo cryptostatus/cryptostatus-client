@@ -4,11 +4,11 @@ import classnames from 'classnames';
 import { Field } from 'redux-form'
 
 const Input = ({ input, className, placeholder, type, label, meta }) => (
-  <div className={classnames('form-group', {'form-group__input--error' : meta.error})}>
+  <div className='form-group'>
     <input
       {...input}
       type={type}
-      className={classnames('form-control input__form', className)}
+      className={classnames('form-control input__form', className, {'error__theme' : meta.error})}
       placeholder={placeholder}
     />
     { label ? <label>{ label }</label> : '' }

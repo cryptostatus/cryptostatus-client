@@ -1,0 +1,38 @@
+.icon {
+  font-size: 14px;
+  color: map-get($black, light);
+  cursor: pointer;
+  transition: map-get($transition, cubic);
+
+  &:focus {
+    outline: none !important;
+  }
+
+  &.black__theme {
+    color: map-get($black, default);
+  }
+
+  &.blue__theme {
+    @include icon-theme($blue);
+  }
+
+  &.purple__theme {
+    @include icon-theme($purple);
+  }
+
+  &.orange__theme {
+    @include icon-theme($orange);
+  }
+
+  &.yellow__theme {
+    @include icon-theme($yellow);
+  }
+
+  &.pink__theme {
+    @include icon-theme($pink);
+  }
+
+  &.white__theme {
+    @include icon-theme($white);
+  }
+}

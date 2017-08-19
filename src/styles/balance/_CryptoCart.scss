@@ -1,6 +1,7 @@
 .crypto-cart-wrap {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .crypto-cart {
@@ -40,6 +41,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px 0;
+  cursor: pointer;
 
   @each $color in $crypto-colors {
     &.crypto-color-#{nth($color, 1)} {
@@ -77,6 +79,7 @@
 
 .crypto-cart-value {
   font-size: 26px;
+  height: 40px;
 }
 
 .crypto-cart-value.profit {
@@ -98,5 +101,81 @@
     &:before {
       content: '+';
     }
+  }
+}
+
+.crypto-cart-tools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  height: 0;
+  padding: 0;
+  visibility: hidden;
+  transition: map-get($transition, cubic);
+}
+.crypto-cart-tools--active {
+  visibility: visible;
+  height: 70px;
+}
+.crypto-cart__toggle-wrap {
+  position: relative;
+  padding-right: 35px;
+}
+.crypto-cart__toggle-icon {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: calc(-20px / 2);
+  height: 20px;
+}
+.crypto-cart__toggle-icon--active {
+  transform: rotateX(-180deg)
+}
+.crypto-cart-tools__action {
+  margin-right: 20px;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+.crypto-cart-tools__title {
+  color: map-get($black, light);
+}
+
+.crypto-cart-tools__button {
+  padding: 5px 10px;
+  margin-right: 15px;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.crypto-cart__field {
+  .form-group {
+    margin: 0;
+    padding: 0;
+    height: auto;
+  }
+  input {
+    margin: 0;
+    padding: 0;
+    font-size: 26px;
+    line-height: 26px;
+    height: auto;
+    border-bottom-width: 1px;
+    padding-bottom: 17px;
+  }
+}
+
+.crypto-cart__field-wrap {
+  border-bottom: 0;
+  padding-bottom: 0;
+
+  .crypto-cart-name {
+    margin-bottom: 12px;
+  }
+
+  .crypto-cart-column {
+    width: 100%;
   }
 }

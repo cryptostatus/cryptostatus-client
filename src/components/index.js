@@ -1,3 +1,4 @@
+export { default as CustomComponent } from './CustomComponent';
 export { default as OAuthButton } from './OAuthButton';
 export { default as Button } from './Button';
 export { default as Alert } from './Alert';
@@ -10,3 +11,4 @@ export { default as PanelHeading } from './PanelHeading';
 export { default as SignIn } from './SignIn';
 export { default as FormButton } from './FormButton';
 export { default as Preloader } from './Preloader';
+export { default as Icon } from './Icon';

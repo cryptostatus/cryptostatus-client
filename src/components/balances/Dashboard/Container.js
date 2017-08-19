@@ -5,8 +5,8 @@ import Loader from 'store/loader'
 import Dashboard from './Component'
 
 const mapStateToProps = (state) => ({
-  balances: Balance.selectors.all(),
-  isLoaded: Loader.selectors.isLoaded('balances')
+  balancesIds: Balance.selectors.allIds(),
+  isLoaded: Loader.selectors.isLoaded('balances'),
 })
 
 const componentDidMount = () => (dispatch, getState) => dispatch(Balance.actions.getList())
