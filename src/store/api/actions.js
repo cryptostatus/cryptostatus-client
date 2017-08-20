@@ -3,9 +3,10 @@ import User from '../user'
 import { camelCaseKeys, snakeCaseKeys, transform } from 'utils'
 import { REQUEST, SUCCESS, FAILURE } from './types'
 
-const request = (method, path, action, { data, params }) => (dispatch, getState) => {
+const request = (method, path, action, payload) => (dispatch, getState) => {
   dispatch({
     type: action + REQUEST,
+    payload
   });
 
   const headers = User.selectors.accessHeaders(getState())
@@ -15,8 +16,8 @@ const request = (method, path, action, { data, params }) => (dispatch, getState)
     baseURL,
     method,
     url: path,
-    data: snakeCaseKeys(data),
-    params: snakeCaseKeys(params),
+    data: snakeCaseKeys(payload.data),
+    params: snakeCaseKeys(payload.params),
     headers
   }
 
@@ -42,7 +43,7 @@ const request = (method, path, action, { data, params }) => (dispatch, getState)
 const types = ['post', 'get', 'delete', 'patch']
 
 const actionate = (api, method) => {
-  api[method] = (path, action, {data, params}) => request(method, path, action, {data, params})
+  api[method] = (path, action, payload) => request(method, path, action, payload)
 }
 
 const api = transform(types, actionate, {})

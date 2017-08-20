@@ -6,3 +6,9 @@ export const getList = () =>
 
 export const create = (data) =>
   Api.post('balances', actions.BALANCE_CREATE, { data })
+
+export const remove = (id) =>
+  Api.delete(`balances/${id}`, actions.BALANCE_DESTROY, { id })
+
+export const update = (data, id) =>
+  Api.patch(`balances/${id}`, actions.BALANCE_UPDATE, { data, id })

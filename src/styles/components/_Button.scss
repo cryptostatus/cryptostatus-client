@@ -26,6 +26,14 @@
     @include button-theme($blue);
   }
 
+  &.green__theme {
+    @include button-theme($green);
+  }
+
+  &.red__theme {
+    @include button-theme($red);
+  }
+
   &.purple__theme {
     @include button-theme($purple);
   }

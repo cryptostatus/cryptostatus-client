@@ -5,19 +5,11 @@ import { map } from 'utils'
 import { Table, Panel, PanelHeading } from 'components'
 import CryptoCart from '../CryptoCart'
 
-const Dashboard = ({ balances }) =>
+const Dashboard = ({ balancesIds }) =>
   <div className='crypto-cart-wrap'>
-    { balances.map((balance) =>
-      <div key={balance.id} className='crypto-cart'>
-        <CryptoCart { ...balance } />
-      </div>
+    { balancesIds.map((balanceId) =>
+      <CryptoCart key={balanceId} id={balanceId} />
     )}
   </div>
-
-Dashboard.propTypes = {
-  balances: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-  }).isRequired).isRequired,
-}
 
 export default Dashboard

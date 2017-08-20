@@ -11,6 +11,23 @@
     border-color: map-get($color_theme, default);
     color: map-get($color_theme, default);
   }
+
+  &.constant {
+    border-color: map-get($color_theme, default);
+    color: map-get($color_theme, default);
+  }
+}
+
+@mixin icon-theme($color_theme) {
+  &:hover, &.active {
+    color: map-get($color_theme, default);
+  }
+  .icon-wrap:hover & {
+    color: map-get($color_theme, default);
+  }
+  &.constant {
+    color: map-get($color_theme, default);
+  }
 }
 
 @mixin input-focus-theme($color_theme) {
