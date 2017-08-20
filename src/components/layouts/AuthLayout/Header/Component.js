@@ -5,7 +5,7 @@ import { Button } from 'components'
 
 const Header = ({ signout }) =>
   <header className='header navbar navbar-default'>
-    <div className='container-fluid'>
+    <div className='container container__header'>
       <div className='navbar-header'>
         <Link to='/' className='navbar-brand'>
           Cryptostatus
