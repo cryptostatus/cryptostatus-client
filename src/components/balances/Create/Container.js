@@ -9,7 +9,7 @@ import Balance from 'store/entities/balances'
 import Create from './Component'
 
 const formValues = (values) => {
-  return { ...values, strategy: values.strategy ? 'buyer' : 'seller' }
+  return { ...values, strategy: values.strategy ? 'seller' : 'buyer' }
 }
 
 const mapStateToProps = () => ({
@@ -18,7 +18,6 @@ const mapStateToProps = () => ({
     strategy: true,
   },
 })
-
 
 const mapDispatchToProps = {
   create: Balance.actions.create,
