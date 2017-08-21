@@ -13,6 +13,7 @@ import transform from 'lodash/transform';
 import isString from 'lodash/isString';
 import isEmpty from 'lodash/isEmpty';
 import pickBy from 'lodash/pickBy';
+import isFunction from 'lodash/isFunction';
 
 // get :: k -> { k: a } -> a
 export const get = curry((path, object) =>
@@ -68,6 +69,8 @@ export const deepTransformKeys = curry((f, value) => cond([
   [isObject, pipe(map((value, key) => [f(key), deepTransformKeys(f, value)]), fromPairs)],
   [T, identity],
 ])(value))
+
+export const tryCall = (func, ...params) => { if(isFunction(func)) { return func(params) }  }
 
 export const camelCaseKeys = (object) => deepTransformKeys(camelCase, object)
 export const snakeCaseKeys = (object) => deepTransformKeys(snakeCase, object)

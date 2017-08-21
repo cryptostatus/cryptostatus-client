@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { isFunction } from 'lodash'
+
+import { tryCall } from 'utils'
 
 class ForManage extends Component {
   constructor(props) {
@@ -18,27 +19,27 @@ class ForManage extends Component {
 
   toggleTools(values) {
     this.setState({ isActiveTools: !this.state.isActiveTools })
-    if(isFunction(this.props.onToggleTools)) { this.props.onToggleTools(values) }
+    tryCall(this.props.onToggleTools, values)
   }
 
   toggleEdit(values) {
     this.setState({ editTools: !this.state.editTools })
-    if(isFunction(this.props.onToggleEdit)) { this.props.onToggleEdit(values) }
+    tryCall(this.props.onToggleEdit, values)
   }
 
   toggleRemove(values) {
     this.setState({ removeTools: !this.state.removeTools })
-    if(isFunction(this.props.onToggleRemove)) { this.props.onToggleRemove(values) }
+    tryCall(this.props.onToggleRemove, values)
   }
 
   confirmRemove(values) {
     this.setState({ removeTools: false })
-    if(isFunction(this.props.onRemove)) { this.props.onRemove(values) }
+    tryCall(this.props.onRemove, values)
   }
 
   confirmEdit(values) {
     this.setState({ editTools: false })
-    if(isFunction(this.props.onEdit)) { this.props.onEdit(values) }
+    tryCall(this.props.onEdit, values)
   }
 }
 
