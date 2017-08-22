@@ -48,6 +48,6 @@ export const validateToken = () => {
 export const signout = () => (dispatch) => {
   Promise.resolve(dispatch({type: USER_SIGNOUT})).then(response => {
     storage.remove('authData')
-    return dispatch(replace(path.BALANCES))
+    return dispatch(replace(path.ROOT))
   })
 }

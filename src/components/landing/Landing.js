@@ -1,6 +1,6 @@
 import React from 'react'
 import Main from './Main'
-import Footer from './Footer'
+import { Footer } from 'components'
 import SignupForm from '../user/SignUpForm'
 
 const Landing = () =>

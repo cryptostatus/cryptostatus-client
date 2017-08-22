@@ -1,0 +1,16 @@
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 200px;
+  img {
+    width: 100%;
+  }
+}
+.container__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}

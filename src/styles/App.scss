@@ -14,6 +14,8 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import 'base';
 
 /* Components */
+@import 'components/Footer.scss';
+@import 'components/Header.scss';
 @import 'components/Form.scss';
 @import 'components/Landing.scss';
 @import 'components/Input.scss';
@@ -23,6 +25,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import 'components/Toggler.scss';
 @import 'components/OAuthButton.scss';
 @import 'components/Icon.scss';
+@import 'components/Navigation.scss';
 
 @import 'user/Header.scss';
 @import 'balance/CryptoSelect.scss';

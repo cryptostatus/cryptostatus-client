@@ -3,7 +3,7 @@ import { SUCCESS } from '../api/types'
 import { createReducer, set } from 'utils'
 
 export default createReducer({}, {
-  [VALIDATE_TOKEN + SUCCESS]: (state, payload) => set('accessHeaders', payload.headers, state),
+  [VALIDATE_TOKEN + SUCCESS]: (state, payload) => set('entity', payload.data, state),
   [USER_SET_ACCESS_HEADERS + SUCCESS]: (state, payload) => set('accessHeaders', payload.headers, state),
-  [USER_SIGNOUT]: (state, payload) => set('accessHeaders', null, state)
+  [USER_SIGNOUT]: (state, payload) => () => {}
 })

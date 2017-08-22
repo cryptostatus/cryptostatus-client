@@ -39,8 +39,8 @@ class CryptoCart extends CustomComponent.ForManage {
 
           { !editTools && !removeTools &&
             <div className='crypto-cart-tools__actions'>
-              <Icon onClick={toggleEdit} type='Edit' size={30} className='crypto-cart-tools__action white__theme' />
-              <Icon onClick={toggleRemove} type='Trash' size={30} className='crypto-cart-tools__action white__theme' />
+              <Icon onClick={toggleEdit} type='Edit' size={27} className='crypto-cart-tools__action white__theme' />
+              <Icon onClick={toggleRemove} type='Trash' size={27} className='crypto-cart-tools__action white__theme' />
             </div>
           }
 
@@ -135,7 +135,7 @@ class CryptoCart extends CustomComponent.ForManage {
 
               <div className='crypto-cart-column'>
                 <span className='crypto-cart-name'>Current profit</span>
-                <span className={classnames('crypto-cart-value profit', { 'positive': currentProfitPercent >= profitPercent })}>
+                <span className={classnames('crypto-cart-value crypto-cart-value__profit', { 'positive': currentProfitPercent > 0, 'profit': currentProfitPercent >= profitPercent })}>
                   {numberFormat.percent(currentProfitPercent)}
                   </span>
               </div>
