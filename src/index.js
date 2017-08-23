@@ -7,6 +7,8 @@ import App from 'App'
 
 import 'styles/dist/styles/App.css'
 
+import { unregister as unregisterServiceWorker } from './registerServiceWorker'
+
 User.actions.checkOAuthCredentials()
 
 ReactDOM.render(
@@ -18,4 +20,4 @@ ReactDOM.render(
   document.getElementById('root')
 )
 
-require('registerServiceWorker').default()
+unregisterServiceWorker();
