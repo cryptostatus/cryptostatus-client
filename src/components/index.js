@@ -1,4 +1,5 @@
 export { default as CustomComponent } from './CustomComponent';
+export { default as Footer } from './Footer';
 export { default as OAuthButton } from './OAuthButton';
 export { default as Button } from './Button';
 export { default as Alert } from './Alert';

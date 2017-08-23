@@ -1,6 +1,6 @@
 import React from 'react'
 
 const Preloader = () =>
-  <div>Preloader</div>
+  <div></div>
 
 export default Preloader

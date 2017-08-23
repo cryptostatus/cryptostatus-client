@@ -7,16 +7,20 @@
 .crypto-cart {
   display: flex;
   flex-direction: column;
-  margin: 0 55px 30px 0;
+  margin: 0 70px 30px 0;
   width: 100%;
-  max-width: 325px;
+  max-width: 323px;
+
+  &:nth-child(3n) {
+    margin-right: 0;
+  }
 
   @media (max-width: $screen-lg) {
     max-width: none;
     justify-content: space-between;
-    margin-right: 60px;
     width: calc(50% - 30px);
 
+    margin: 0 60px 30px 0;
     &:nth-child(2n) {
       margin-right: 0;
     }
@@ -82,7 +86,7 @@
   height: 40px;
 }
 
-.crypto-cart-value.profit {
+.crypto-cart-value__profit {
   position: relative;
   color: map-get($red, default);
   padding-left: 16px;
@@ -95,11 +99,14 @@
   }
 
   &.positive {
-    color: map-get($green, default);
-
+    color: map-get($orange, default);
     &:before {
       content: '+';
     }
+  }
+
+  &.profit {
+    color: map-get($green, default);
   }
 }
 
@@ -138,6 +145,7 @@
   }
 }
 .crypto-cart-tools__title {
+  font-size: 12px;
   color: map-get($black, light);
 }
 
@@ -171,7 +179,7 @@
   padding-bottom: 0;
 
   .crypto-cart-name {
-    margin-bottom: 12px;
+    margin-bottom: 13px;
   }
 
   .crypto-cart-column {

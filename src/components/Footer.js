@@ -1,9 +1,9 @@
 import React from 'react'
 import { Mail, Twitter } from 'react-feather'
+import classnames from 'classnames'
 
-
-const Footer = () =>
-  <footer className='footer__landing'>
+const Footer = ({ className }) =>
+  <footer className={classnames('footer', className)}>
     <div className='footer__icons'>
       <a href="mailto:hello@cryptostat.us">
         <Mail />

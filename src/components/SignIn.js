@@ -1,6 +1,6 @@
 import React from 'react'
 import Main from './landing/Main'
-import Footer from './landing/Footer'
+import { Footer } from 'components'
 import SigninForm from './user/SignInForm'
 
 const SignIn = () =>

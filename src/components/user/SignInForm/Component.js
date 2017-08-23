@@ -32,9 +32,9 @@ const SigninForm = ({ handleSubmit, error, submitting }) =>
     </form>
 
     <div className='oauth-providers'>
-      <OAuthButton provider='github' />
-      <OAuthButton provider='facebook' />
-      <OAuthButton provider='google_oauth2' />
+      <OAuthButton className='btn-icon' provider='github' />
+      <OAuthButton className='btn-icon' provider='facebook' />
+      <OAuthButton className='btn-icon' provider='google_oauth2' />
     </div>
   </div>
 

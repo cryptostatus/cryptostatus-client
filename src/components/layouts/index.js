@@ -1,5 +1,5 @@
-import { default as AuthLayout } from './AuthLayout'
-import { default as BaseLayout } from './BaseLayout'
-import { default as LayoutGA } from './LayoutGA'
+import { default as Auth } from './Auth'
+import { default as Base } from './Base'
+import { default as GoogleAnalytic } from './GoogleAnalytic'
 
-export default { AuthLayout, BaseLayout, LayoutGA }
+export default { Auth, Base, GoogleAnalytic }
