@@ -5,7 +5,7 @@ import { ConnectedRouter } from 'react-router-redux'
 import ReactGA from 'react-ga'
 
 import { AuthRoute, UnAuthRoute } from 'routes'
-import { Landing, SignIn } from 'components'
+import { Landing, SignIn, NotFound } from 'components'
 import Layouts from 'components/layouts'
 import Balance from 'components/balances'
 import * as path from 'routes/path'
@@ -20,7 +20,7 @@ export default ({ store, history }) =>
           <AuthRoute path={path.BALANCES} layout={Layouts.AuthLayout} component={Balance.Dashboard} exact />
           <AuthRoute path={path.BALANCES_CREATE} layout={Layouts.AuthLayout} component={Balance.Create} exact />
 
-          <Route component={() => <h1>404</h1>} />
+          <Route path='*' component={NotFound} />
         </Switch>
         </Layouts.GoogleAnalytic>
     </ConnectedRouter>

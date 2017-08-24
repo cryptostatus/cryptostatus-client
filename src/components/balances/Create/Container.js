@@ -15,7 +15,7 @@ const formValues = (values) => {
 const mapStateToProps = () => ({
   initialValues: {
     name: cryptoCurrencies[0],
-    strategy: true,
+    strategy: 'seller',
   },
 })
 
@@ -28,7 +28,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => ({
   ...stateProps,
   ...dispatchProps,
   ...ownProps,
-  onSubmit: formAdapter((data) => dispatchProps.create(formValues(data)).then(response => dispatchProps.onSuccess()))
+  onSubmit: formAdapter((data) => dispatchProps.create(data).then(response => dispatchProps.onSuccess()))
 })
 
 const reduxCreate = reduxForm({form: 'Balance.Create'})(Create)
