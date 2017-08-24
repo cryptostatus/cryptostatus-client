@@ -1,9 +1,9 @@
 .crypto__wrap {
   width: 100%;
   overflow-y: scroll;
-  max-height: 340px;
+  height: 340px;
   margin-right: 25px;
-  max-width: 400px;
+  max-width: 300px;
 }
 .crypto__list {
   display: flex;
@@ -21,7 +21,7 @@
   @extend .border-box;
   cursor: pointer;
   text-align: center;
-  width: 25%;
+  width: 33%;
   padding: 0.5em;
   transition: map-get($transition, ease);
 
@@ -81,7 +81,7 @@
   align-items: stretch;
   margin-top: 25px;
 
-  @media (max-width: 650px) {
+  @media (max-width: $screen-sm) {
     flex-direction: column;
     .crypto__wrap {
       max-width: initial;
@@ -101,4 +101,16 @@
 
 .balance__field {
   flex: 1;
+}
+
+.crypto-cart-title__wrap {
+  text-align: center;
+  width: 100%;
+}
+.crypto-cart-title {
+  font-size: 20px;
+
+  a {
+    color: map-get($green, default);
+  }
 }
