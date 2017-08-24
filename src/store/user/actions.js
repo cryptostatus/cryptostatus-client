@@ -23,6 +23,8 @@ export const setAccessHeaders = (headers) => {
   }
 }
 
+export const removeAccessHeaders = () => storage.remove('authData')
+
 export const checkOAuthCredentials = () => {
   const urlHeaders = pickBy(urlParams(headersKeys, true), (value, key) => !isNil(value))
   if(!isEmpty(urlHeaders)) { storage.set('authData', urlHeaders) }
@@ -47,7 +49,7 @@ export const validateToken = () => {
 }
 export const signout = () => (dispatch) => {
   Promise.resolve(dispatch({type: USER_SIGNOUT})).then(response => {
-    storage.remove('authData')
+    removeAccessHeaders()
     return dispatch(replace(path.ROOT))
   })
 }

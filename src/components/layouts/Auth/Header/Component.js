@@ -13,12 +13,10 @@ const Header = ({ signout }) =>
         </Link>
       </div>
 
-      <div className='collapse navbar-collapse'>
-        <div className='navbar-right'>
-          <Button className='white__theme' type='button' navbar onClick={signout}>
-            Signout
-          </Button>
-        </div>
+      <div className='navbar-right'>
+        <Button className='white__theme' type='button' navbar onClick={signout}>
+          Signout
+        </Button>
       </div>
     </div>
   </header>
