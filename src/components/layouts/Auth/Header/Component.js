@@ -8,7 +8,7 @@ const Header = ({ signout }) =>
   <header className='header navbar navbar-default'>
     <div className='container__header'>
       <div className='navbar-header'>
-        <Link to={path.ROOT} className='navbar-brand'>
+        <Link to={path.BALANCES} className='navbar-brand'>
           <img src="/cryptostatus_logo.png" />
         </Link>
       </div>
