@@ -2,13 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
 
+import { Preloader } from 'components'
 import * as path from 'routes/path'
 import { map, isEmpty } from 'utils'
 import { Table, Panel, PanelHeading } from 'components'
 import CryptoCart from '../CryptoCart'
 
-const Dashboard = ({ balancesIds }) =>
-  <div className='crypto-cart-wrap'>
+const Dashboard = ({ balancesIds, isLoaded }) =>
+  <div className='crypto-cart-wrap main-content-wrap'>
+    <Preloader loading={!isLoaded} />
+
     { balancesIds.map((balanceId) =>
       <CryptoCart key={balanceId} id={balanceId} />
     )}

@@ -42,3 +42,7 @@ li {
     border-radius: 2px;
     background: map-get($black, light);
 }
+
+.main-content-wrap {
+  position: relative;
+}

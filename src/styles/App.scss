@@ -4,10 +4,12 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import 'node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
 @import 'node_modules/compass-mixins/lib/_compass.scss';
 
+@import 'parts/variables.scss';
+
 @import 'lib/ladda.scss';
+@import 'lib/three_bounce_spinner.scss';
 
 /* Parts */
-@import 'parts/variables.scss';
 @import 'parts/mixins.scss';
 @import 'parts/crypto_colors.scss';
 
@@ -27,6 +29,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import 'components/Icon.scss';
 @import 'components/Navigation.scss';
 @import 'components/NotFound.scss';
+@import 'components/Preloader.scss';
 
 @import 'user/Header.scss';
 @import 'balance/CryptoSelect.scss';
