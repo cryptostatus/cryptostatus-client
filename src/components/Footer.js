@@ -2,6 +2,8 @@ import React from 'react'
 import { Mail, Twitter } from 'react-feather'
 import classnames from 'classnames'
 
+import * as Text from 'constants/Text'
+
 const Footer = ({ className }) =>
   <footer className={classnames('footer', className)}>
     <div className='footer__icons'>
@@ -13,7 +15,7 @@ const Footer = ({ className }) =>
       </a>
     </div>
     <p>
-      © Cryptostatus 2017
+      { `© ${Text.LOGO} 2017` }
     </p>
   </footer>
 

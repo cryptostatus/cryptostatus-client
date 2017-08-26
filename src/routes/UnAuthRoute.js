@@ -1,7 +1,7 @@
 import React from 'react'
-import { Route } from 'react-router'
 import { replace } from 'react-router-redux'
 
+import Route from './Route'
 import { store } from 'store'
 import User from 'store/user'
 import * as appPath from './path'
@@ -21,7 +21,7 @@ const UnAuthRoute = ({ layout, match, path, component: Component, ...rest }) => 
   }
 
   return (
-    <Route {...rest} render={props => (
+    <Route path={path} {...rest} render={props => (
       accessHeaders
       ? <Preloader loading={true} />
       : <Component { ...props} />

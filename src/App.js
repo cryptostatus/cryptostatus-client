@@ -1,10 +1,10 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import { Router, Route, IndexRoute, Switch } from 'react-router'
+import { Router, IndexRoute, Switch } from 'react-router'
 import { ConnectedRouter } from 'react-router-redux'
 import ReactGA from 'react-ga'
 
-import { AuthRoute, UnAuthRoute } from 'routes'
+import { AuthRoute, UnAuthRoute, Route } from 'routes'
 import { Landing, SignIn, NotFound404, Error500 } from 'components'
 import Layouts from 'components/layouts'
 import Balance from 'components/balances'
