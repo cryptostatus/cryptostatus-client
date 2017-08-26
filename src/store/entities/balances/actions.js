@@ -1,5 +1,5 @@
 import * as actions from './types'
-import { fetchUrlParam } from 'utils/urlParams'
+import { urlParam } from 'utils/urlParams'
 import Api from 'store/api/actions'
 
 export const getList = () =>
@@ -15,7 +15,7 @@ export const update = (data, id) =>
   Api.patch(`balances/${id}`, actions.BALANCE_UPDATE, { data, id })
 
 export const removeCallback = (response) => {
-  const deleteId = fetchUrlParam('delete_id', true)
+  const deleteId = urlParam('delete_id', true)
   if (!deleteId) return response
   return remove(deleteId)
 }
