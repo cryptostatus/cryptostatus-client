@@ -13,9 +13,9 @@ const Create = ({ handleSubmit, error, submitting }) =>
     <CryptoSelect className='yellow__theme' />
 
     <div className='balance__field'>
-      <Input name='amount' className='purple__theme' type='number' step='0.1' placeholder='amount' label='Amount of coins'/>
-      <Input name='invested' className='orange__theme' type='number' step='0.1' placeholder='invested' label='Invested money'/>
-      <Input name='profitPercent' className='blue__theme' type='number' step='0.1' placeholder='profit percent' label='Expected growth of investments'/>
+      <Input name='amount' className='purple__theme' type='number' step='0.000001' placeholder='amount' label='Amount of coins'/>
+      <Input name='invested' className='orange__theme' type='number' step='0.01' placeholder='invested' label='Invested money'/>
+      <Input name='profitPercent' className='blue__theme' type='number' step='0.01' placeholder='profit percent' label='Expected growth of investments'/>
 
       <FormButton className='white__theme' type='submit' loading={submitting} text='Create balance' />
     </div>
