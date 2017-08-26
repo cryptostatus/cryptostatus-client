@@ -1,8 +1,8 @@
 import React from 'react'
-import { Route } from 'react-router'
 import { replace } from 'react-router-redux'
 import { isFunction } from 'lodash'
 
+import Route from './Route'
 import { store } from 'store'
 import User from 'store/user'
 import * as appPath from './path'
@@ -20,7 +20,7 @@ const AuthRoute = ({ layout, match, path, component: Component, successCallback,
   }
 
   return (
-    <Route {...rest} render={props => (
+    <Route path={path} {...rest} render={props => (
       user
       ? <Layouts.Auth><Component { ...props} /></Layouts.Auth>
       : <Preloader loading={true} />

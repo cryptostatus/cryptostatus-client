@@ -25,7 +25,6 @@
   width: 33%;
   padding: 0.5em;
   transition: map-get($transition, ease);
-
   .item__info {
     width: 100%;
     height: 100%;
@@ -33,41 +32,34 @@
     background: $grey;
     transition: map-get($transition, ease);
   }
-
   input[type="radio"] {
     display: none;
     &:checked + .item__info {
       background: map-get($black, default);
     }
   }
-
   .item__title {
     font-size: 14px;
     font-style: italic;
     margin-bottom: 0;
     text-transform: uppercase;
   }
-
   .item__icon {
     margin-bottom: 0;
-
     svg {
       width: 40px;
       height: 40px;
       fill: map-get($white, default);
     }
   }
-
   &:hover .item__info {
     background: map-get($black, default);
   }
 
   &.yellow__theme {
-
     &:hover .item__info {
       background: map-get($yellow, default);
     }
-
     input[type="radio"] {
       display: none;
       &:checked + .item__info {
@@ -76,12 +68,10 @@
     }
   }
 }
-
 .balance__form {
   display: flex;
   align-items: stretch;
   margin-top: 25px;
-
   @media (max-width: $screen-sm) {
     flex-direction: column;
     .crypto__wrap {
@@ -90,9 +80,11 @@
     }
     .crypto__item {
       width: 25%;
+      &:hover .item__info {
+        background: $grey;
+      }
     }
   }
-
   @media (max-width: $screen-xs) {
     .crypto__item {
       width: 33%;
