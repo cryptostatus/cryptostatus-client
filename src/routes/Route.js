@@ -10,13 +10,7 @@ const Route = ({ path, ...rest }) => {
 
   return (
     <div>
-      <Helmet {...metaInfo}>
-        <meta property='og:title' content={Text.LOGO} />
-        <meta property='og:description' content={Text.DESCRIPTION} />
-        <meta property='og:type' content='website' />
-        <meta property='og:url' content={process.env.REACT_APP_DOMAIN} />
-        <meta property='og:image' content={`${process.env.REACT_APP_DOMAIN}/cryptostatus_open_graph_image.png`} />
-      </Helmet>
+      <Helmet {...metaInfo} />
 
       <ReactRoute path={path} {...rest} />
     </div>
