@@ -5,7 +5,7 @@ import classnames from 'classnames'
 const Footer = ({ className }) =>
   <footer className={classnames('footer', className)}>
     <div className='footer__icons'>
-      <a href="mailto:hello@cryptostat.us">
+      <a href="mailto:hello@kirillshevch.com">
         <Mail />
       </a>
       <a href="https://twitter.com/cryptostatus" target='_blank'>
