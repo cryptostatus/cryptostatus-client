@@ -22,7 +22,9 @@ const UnAuthRoute = ({ layout, match, path, component: Component, ...rest }) => 
 
   return (
     <Route {...rest} render={props => (
-      accessHeaders ? <Preloader /> : <Component { ...props} />
+      accessHeaders
+      ? <Preloader loading={true} />
+      : <Component { ...props} />
     )}/>
   )
 }

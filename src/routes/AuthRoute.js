@@ -23,7 +23,7 @@ const AuthRoute = ({ layout, match, path, component: Component, successCallback,
     <Route {...rest} render={props => (
       user
       ? <Layouts.Auth><Component { ...props} /></Layouts.Auth>
-      : <Preloader />
+      : <Preloader loading={true} />
     )}/>
   )
 }
