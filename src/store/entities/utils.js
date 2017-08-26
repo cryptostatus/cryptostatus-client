@@ -1,6 +1,7 @@
 import normalize from './schemas'
 import { transform, pickBy, keys, forIn, filter, uniq, isEmpty } from 'lodash'
 import dotProp from 'dot-prop-immutable'
+import Entities from 'store/entities'
 
 const initialState = {
   byId: [],
@@ -22,19 +23,18 @@ const complementEntities = (state, entities, name) => {
 
   return {
     ...stateEntities,
-    byId: {...stateEntities.byId, ...complementGroupEntities(state, entities) },
+    byId: {...stateEntities.byId, ...updateGroupEntities(state, entities, name) },
     allIds: uniq([ ...stateEntities.allIds, ...keys(entities) ])
   }
 }
 
-const complementGroupEntities = (state, entities) => {
+const updateGroupEntities = (state, entities, name, whitReplace) => {
   return transform(entities, (result, entity, id) => {
-    return result[id] = {
-      ...dotProp.get(state, `${entity.type}.'byId'.${id}`),
-      ...entity
-    }
+    const newEntity = whitReplace ? { ...Entities.selectors.byId(state, name, id), ...entity } : entity
+    return result[id] = { ...Entities.selectors.byId(state, name, id), ...entity }
   }, {})
 }
+
 
 const sliceEnities = (state, entities, name) => {
   const stateEntities = state[name] || initialState
@@ -46,5 +46,24 @@ const sliceEnities = (state, entities, name) => {
   }
 }
 
+const replaceEntities = (state, data, entityName) => {
+  const normalizedData = normalize(data)
+
+  if (isEmpty(normalizedData)) { return { ...state, [entityName]: initialState } }
+
+  const transformedEntities = transform(normalizedData.entities, (result, entities, name) => {
+    const stateEntities = state[name] || initialState
+
+    return result[name] = {
+      ...stateEntities,
+      byId: updateGroupEntities(state, entities, name, true),
+      allIds: keys(entities)
+    }
+  }, {})
+
+  return { ...state, ...transformedEntities }
+}
+
+export const replace = (state, data, entityName) => replaceEntities(state, data, entityName)
 export const complement = (state, data) => transformEntities(state, data, complementEntities)
 export const slice = (state, data) => transformEntities(state, data, sliceEnities)
