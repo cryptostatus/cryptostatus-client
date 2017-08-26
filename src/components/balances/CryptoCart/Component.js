@@ -102,7 +102,7 @@ class CryptoCart extends CustomComponent.ForManage {
               </div>
 
               <div className='crypto-cart-column'>
-                <span className='crypto-cart-name'>Current rate</span>
+                <span className='crypto-cart-name crypto-cart-name__right'>Current rate</span>
                 <span className='crypto-cart-value'>
                   {numberFormat.USD(currentPricePerItem)}
                 </span>
@@ -118,7 +118,7 @@ class CryptoCart extends CustomComponent.ForManage {
               </div>
 
               <div className='crypto-cart-column'>
-                <span className='crypto-cart-name'>Current cost</span>
+                <span className='crypto-cart-name crypto-cart-name__right'>Current cost</span>
                 <span className='crypto-cart-value'>
                   {numberFormat.USD(currentBalancePrice)}
                 </span>
@@ -134,7 +134,7 @@ class CryptoCart extends CustomComponent.ForManage {
               </div>
 
               <div className='crypto-cart-column'>
-                <span className='crypto-cart-name'>Current profit</span>
+                <span className='crypto-cart-name crypto-cart-name__right'>Current profit</span>
                 <span className={classnames('crypto-cart-value crypto-cart-value__profit', { 'positive': currentProfitPercent > 0, 'profit': currentProfitPercent >= profitPercent })}>
                   {numberFormat.percent(currentProfitPercent)}
                   </span>
