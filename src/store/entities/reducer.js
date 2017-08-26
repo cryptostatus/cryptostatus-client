@@ -4,7 +4,9 @@ import { SUCCESS } from '../api/types'
 
 const entities = (state = {}, { type, payload }) => {
   switch (type) {
-    case balance.BALANCES_LIST + SUCCESS:
+    case balance.BALANCES_LIST + SUCCESS: {
+      return utils.replace(state, payload.data, 'balances')
+    }
     case balance.BALANCE_GET + SUCCESS:
     case balance.BALANCE_CREATE + SUCCESS:
     case balance.BALANCE_UPDATE + SUCCESS: {

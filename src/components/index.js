@@ -13,4 +13,5 @@ export { default as SignIn } from './SignIn';
 export { default as FormButton } from './FormButton';
 export { default as Preloader } from './Preloader';
 export { default as Icon } from './Icon';
-export { default as NotFound } from './NotFound';
+export { default as NotFound404 } from './NotFound404';
+export { default as Error500 } from './Error500';
