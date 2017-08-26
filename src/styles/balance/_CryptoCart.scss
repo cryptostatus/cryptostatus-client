@@ -81,6 +81,10 @@
   color: map-get($black, light);
 }
 
+.crypto-cart-name__right {
+  text-align: right;
+}
+
 .crypto-cart-value {
   font-size: 26px;
   height: 40px;
