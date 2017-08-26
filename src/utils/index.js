@@ -14,6 +14,7 @@ import isString from 'lodash/isString';
 import isEmpty from 'lodash/isEmpty';
 import pickBy from 'lodash/pickBy';
 import isFunction from 'lodash/isFunction';
+import join from 'lodash/join';
 
 // get :: k -> { k: a } -> a
 export const get = curry((path, object) =>
@@ -31,17 +32,21 @@ export const formAdapter = (f) => (...args) =>
   f(...args).catch((reject) => {
     const errorReject = camelCaseKeys(reject)
 
-    const formatErrors = cond([
+    const errorsToString = cond([
       [isNil, identity],
       [isArray, identity],
       [T, pipe(toPairs, chain(([k, vs]) => map((v) => `${capitalize(lowerCase(k))} ${v}`, vs)))]
     ])
 
+    const formatErrors = (errors) => transform(errors, (result, value, key) => {
+      result[key] = join(value, ', ')
+    }, {})
+
     let error = get('response.data.errors', errorReject)
-      || formatErrors(get('response.data.errors', errorReject))
+      || errorsToString(get('response.data.errors', errorReject))
       || get('response.statusText', errorReject) || 'Unknow error'
 
-    error = isArray(error) || isString(error) ? { _error: error } : error
+    error = isArray(error) || isString(error) ? { _error: error } : formatErrors(error)
     throw new SubmissionError(error)
   })
 
