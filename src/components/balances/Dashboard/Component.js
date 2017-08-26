@@ -9,12 +9,14 @@ import { Table, Panel, PanelHeading } from 'components'
 import CryptoCart from '../CryptoCart'
 
 const Dashboard = ({ balancesIds, isLoaded }) =>
-  <div className='crypto-cart-wrap main-content-wrap'>
+  <div className='main-content-wrap'>
     <Preloader loading={!isLoaded} />
 
-    { balancesIds.map((balanceId) =>
-      <CryptoCart key={balanceId} id={balanceId} />
-    )}
+    <div className='crypto-cart-wrap'>
+      { balancesIds.map((balanceId) =>
+        <CryptoCart key={balanceId} id={balanceId} />
+      )}
+    </div>
 
     { isEmpty(balancesIds) &&
       <div className='crypto-cart-title__wrap'>

@@ -65,7 +65,7 @@ class CryptoCart extends CustomComponent.ForManage {
               <div className='crypto-cart-column'>
                 <span className='crypto-cart-name'>Amount</span>
                 <span className='crypto-cart__field'>
-                  <Input name='amount' className='purple__theme' type='number' placeholder='amount' />
+                  <Input name='amount' step='0.1' className='purple__theme' type='number' placeholder='amount' />
                 </span>
               </div>
             </div>
@@ -74,7 +74,7 @@ class CryptoCart extends CustomComponent.ForManage {
               <div className='crypto-cart-column'>
                 <span className='crypto-cart-name'>Invested</span>
                 <span className='crypto-cart__field'>
-                  <Input name='invested' className='orange__theme' type='number' placeholder='invested' />
+                  <Input name='invested' step='0.1' className='orange__theme' type='number' placeholder='invested' />
                 </span>
               </div>
             </div>
@@ -83,7 +83,7 @@ class CryptoCart extends CustomComponent.ForManage {
               <div className='crypto-cart-column'>
                 <span className='crypto-cart-name'>Expected profit</span>
                 <span className='crypto-cart__field'>
-                  <Input name='profitPercent' className='blue__theme' type='number' placeholder='profit percent' />
+                  <Input name='profitPercent' step='0.1' className='blue__theme' type='number' placeholder='profit percent' />
                 </span>
               </div>
             </div>
