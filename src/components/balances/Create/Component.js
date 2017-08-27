@@ -15,7 +15,7 @@ const Create = ({ handleSubmit, error, submitting }) =>
     <div className='balance__field'>
       <Input name='amount' className='purple__theme' type='number' step='0.000001' placeholder='amount' label='Amount of coins'/>
       <Input name='invested' className='orange__theme' type='number' step='0.01' placeholder='invested' label='Invested money'/>
-      <Input name='profitPercent' className='blue__theme' type='number' step='1' min='1' max='100' placeholder='profit percent' label='Expected growth of investments'/>
+      <Input name='profitPercent' className='blue__theme' type='number' step='0.01' min='1' max='999999' placeholder='profit percent' label='Expected growth of investments'/>
 
       <FormButton className='white__theme' type='submit' loading={submitting} text='Create balance' />
     </div>
