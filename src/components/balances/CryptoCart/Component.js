@@ -83,7 +83,7 @@ class CryptoCart extends CustomComponent.ForManage {
               <div className='crypto-cart-column'>
                 <span className='crypto-cart-name'>Expected profit</span>
                 <span className='crypto-cart__field'>
-                  <Input name='profitPercent' step='0.01' className='blue__theme' type='number' placeholder='profit percent' />
+                  <Input name='profitPercent' step='1' min='1' max='100' className='blue__theme' type='number' placeholder='profit percent' />
                 </span>
               </div>
             </div>
