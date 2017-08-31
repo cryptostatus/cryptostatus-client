@@ -19,9 +19,9 @@
 .crypto-cart {
   display: flex;
   flex-direction: column;
-  margin-right: 50px;
+  margin-right: 92px;
   margin-bottom: 50px;
-  width: calc(33% - 50px);
+  width: calc(33% - 60px);
 
   @media (max-width: $screen-lg) {
     width: calc(50% - 30px);
@@ -35,6 +35,10 @@
     width: 100%;
     margin-right: 0px;
   }
+}
+
+.crypto-cart:nth-child(3n) {
+  margin-right: 0;
 }
 
 .crypto-cart-info {
