@@ -9,7 +9,7 @@
     flex: auto;
   }
 
-  @media (max-width: $screen-md) {
+  @media (max-width: $screen-lg) {
     &:after {
       content: none;
     }
@@ -23,6 +23,10 @@
   margin-bottom: 50px;
   width: calc(33% - 60px);
 
+  &:nth-child(3n) {
+    margin-right: 0;
+  }
+
   @media (max-width: $screen-lg) {
     width: calc(50% - 30px);
     margin-right: 30px;
@@ -35,10 +39,6 @@
     width: 100%;
     margin-right: 0px;
   }
-}
-
-.crypto-cart:nth-child(3n) {
-  margin-right: 0;
 }
 
 .crypto-cart-info {

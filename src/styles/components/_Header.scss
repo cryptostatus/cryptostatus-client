@@ -10,7 +10,8 @@
 }
 
 .navbar-right {
-  margin-right: 4px;
+  float: none !important;
+  margin-right: 0 !important;
 }
 .container__header {
   display: flex;
