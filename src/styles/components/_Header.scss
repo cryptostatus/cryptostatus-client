@@ -8,6 +8,11 @@
     width: 100%;
   }
 }
+
+.navbar-right {
+  float: none !important;
+  margin-right: 0 !important;
+}
 .container__header {
   display: flex;
   justify-content: space-between;

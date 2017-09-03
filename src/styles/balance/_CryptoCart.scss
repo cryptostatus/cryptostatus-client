@@ -9,7 +9,7 @@
     flex: auto;
   }
 
-  @media (max-width: $screen-md) {
+  @media (max-width: $screen-lg) {
     &:after {
       content: none;
     }
@@ -19,9 +19,13 @@
 .crypto-cart {
   display: flex;
   flex-direction: column;
-  margin-right: 50px;
+  margin-right: 92px;
   margin-bottom: 50px;
-  width: calc(33% - 50px);
+  width: calc(33% - 60px);
+
+  &:nth-child(3n) {
+    margin-right: 0;
+  }
 
   @media (max-width: $screen-lg) {
     width: calc(50% - 30px);
