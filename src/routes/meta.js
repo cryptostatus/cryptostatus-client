@@ -12,4 +12,5 @@ export default {
   [path.BALANCES_CREATE]: metaInfo('Create balance'),
   [path.NOT_FOUND_404]: metaInfo('Not Found'),
   [path.ERROR_500]: metaInfo('Error'),
+  [path.POLICY]: metaInfo('Policy'),
 }
