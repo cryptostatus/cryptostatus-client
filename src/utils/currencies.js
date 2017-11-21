@@ -3,6 +3,7 @@ export const cryptoCurrencies = [
   "Eth",
   "Ltc",
   "Rep",
+  "Bch",
   "Zec",
   "Xmr",
   "Etc",
