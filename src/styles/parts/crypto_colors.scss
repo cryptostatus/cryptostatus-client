@@ -3,6 +3,7 @@ $crypto-colors: (
   'eth': #8C01FF,
   'ltc': #B4B4B4,
   'rep': #EC3766,
+  'bch': #ff8800,
   'zec': #F0AD4E,
   'lsk': #38E6B2,
   'xmr': #CF4900,
@@ -23,7 +24,7 @@ $crypto-colors: (
   'sjcx': #0014FF,
   'sc': #009688,
   'ioc': #84D0F4,
-  'gnt': #01d3e0
+  'gnt': #01d3e0,
 );
 
 @function crypto-color($color) {
