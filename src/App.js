@@ -5,9 +5,10 @@ import { ConnectedRouter } from 'react-router-redux'
 import ReactGA from 'react-ga'
 
 import { AuthRoute, UnAuthRoute, Route } from 'routes'
-import { Landing, SignIn, NotFound404, Error500, Policy } from 'components'
+import { Landing, SignIn, NotFound404, Error500, Policy, ForgotPassword, ResetPassword, ForgotPasswordEmail } from 'components'
 import Layouts from 'components/layouts'
 import Balance from 'components/balances'
+import User from 'store/user'
 import * as path from 'routes/path'
 import * as BalanceActions from 'store/entities/balances/actions'
 
@@ -18,12 +19,22 @@ export default ({ store, history }) =>
         <Switch>
           <UnAuthRoute path={path.ROOT} component={Landing} exact />
           <UnAuthRoute path={path.SIGN_IN} component={SignIn} exact />
+          <UnAuthRoute path={path.FORGOT_PASSWORD} component={ForgotPassword} />
+          <UnAuthRoute path={path.FORGOT_PASSWORD_EMAIL} component={ForgotPasswordEmail} />
+
+          <AuthRoute
+            path={path.RESET_PASSWORD}
+            layout={Layouts.AuthLayout}
+            component={ResetPassword}
+            onSuccess={User.actions.setResetPasswordToken}
+            exact
+          />
 
           <AuthRoute
             path={path.BALANCES}
             layout={Layouts.AuthLayout}
             component={Balance.Dashboard}
-            successCallback={BalanceActions.onLoadBalances}
+            onSuccess={BalanceActions.onLoadBalances}
             exact
           />
 

@@ -1,34 +1,49 @@
 import { replace } from 'react-router-redux'
 
-import Api from '../api/actions'
 import { pick, expandPath, pickBy, isNil, isEmpty } from 'utils'
-import urlParams from 'utils/urlParams'
-import { USER_SET_ACCESS_HEADERS, USER_SIGNOUT, VALIDATE_TOKEN } from './types'
+import * as Types from './types'
+import Api from '../api/actions'
+import urlParams, { fetchUrlParam } from 'utils/urlParams'
+import { SUCCESS } from '../api/types'
 import * as storage from 'storage'
 import * as path from 'routes/path'
-import { SUCCESS } from '../api/types'
 
 const headersKeys = [
-  'access-token',
-  'client',
+  'token',
+  'client-id',
   'uid',
 ]
 
-const extractAccessHeaders = pick(headersKeys)
+export const extractAccessHeaders = pick(headersKeys)
 
-export const setAccessHeaders = (headers) => {
-  return {
-    type: USER_SET_ACCESS_HEADERS + SUCCESS,
-    payload: headers,
-  }
-}
+export const setAccessHeaders = (headers) => ({
+  type: Types.USER_SET_ACCESS_HEADERS + SUCCESS,
+  payload: headers,
+})
 
-export const removeAccessHeaders = () => storage.remove('authData')
+export const setResetPasswordToken = () => ({
+  type: Types.USER_SET_RESET_PASSWORD_TOKEN,
+  payload: fetchUrlParam('reset_password_token', true),
+})
 
-export const checkOAuthCredentials = () => {
+export const checkAuthCredentials = () => {
   const urlHeaders = pickBy(urlParams(headersKeys, true), (value, key) => !isNil(value))
   if(!isEmpty(urlHeaders)) { storage.set('authData', urlHeaders) }
 }
+
+export const fetchResetPasswordToken = () => {
+  const urlHeaders = pickBy(urlParams(headersKeys, true), (value, key) => !isNil(value))
+  if(!isEmpty(urlHeaders)) { storage.set('authData', urlHeaders) }
+}
+
+export const signout = () => (dispatch) => {
+  Promise.resolve(dispatch({type: Types.USER_SIGNOUT})).then(response => {
+    storage.remove('authData')
+    return dispatch(replace(path.ROOT))
+  })
+}
+
+export const removeAccessHeaders = () => storage.remove('authData')
 
 const auth = (dispatch, path, type, data) =>
   dispatch(Api.post(`${path}`, type, { data }))
@@ -39,17 +54,16 @@ const auth = (dispatch, path, type, data) =>
   })
 
 export const signin = (data) => (dispatch) =>
-  auth(dispatch, '/auth/sign_in', USER_SET_ACCESS_HEADERS, data)
+  auth(dispatch, '/auth/sign_in', Types.USER_SET_ACCESS_HEADERS, data)
 
 export const signup = (data) => (dispatch) =>
-  auth(dispatch, '/auth', USER_SET_ACCESS_HEADERS, data)
+  auth(dispatch, '/auth', Types.USER_SET_ACCESS_HEADERS, data)
 
-export const validateToken = () => {
-  return Api.get('auth/validate_token', VALIDATE_TOKEN, {})
-}
-export const signout = () => (dispatch) => {
-  Promise.resolve(dispatch({type: USER_SIGNOUT})).then(response => {
-    removeAccessHeaders()
-    return dispatch(replace(path.ROOT))
-  })
-}
+export const validateToken = () =>
+  Api.get('auth/validate_token', Types.VALIDATE_TOKEN, {})
+
+export const forgotPassword = (data) =>
+  Api.post('auth/password', Types.FORGOT_PASSWORD, { data })
+
+export const updatePassword = (data) =>
+  Api.patch('auth/password', Types.UPDATE_PASSWORD, { data })

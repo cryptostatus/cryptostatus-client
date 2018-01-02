@@ -1,11 +1,11 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-import { urlParam } from 'utils/urlParams'
+import { fetchUrlParam } from 'utils/urlParams'
 import * as path from 'routes/path'
 
 const Error500 = ({ className }) => {
-  const errorMessage = urlParam('error', true)
+  const errorMessage = fetchUrlParam('error', true)
 
   return (
     <div className='not-found__wrap'>

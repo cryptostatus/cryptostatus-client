@@ -9,8 +9,6 @@ import 'styles/dist/styles/App.css'
 
 import { unregister as unregisterServiceWorker } from './registerServiceWorker'
 
-User.actions.checkOAuthCredentials()
-
 ReactDOM.render(
   <App
     store={store}

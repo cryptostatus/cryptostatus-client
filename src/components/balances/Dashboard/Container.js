@@ -1,4 +1,4 @@
-import connectWithLifeCycle from 'utils/lifecycle'
+import lifecycleConnect from 'lifecycle-connector'
 
 import Balance from 'store/entities/balances'
 import Loader from 'store/loader'
@@ -15,4 +15,4 @@ const mapDispatchToProps = {
   componentDidMount
 }
 
-export default connectWithLifeCycle(mapStateToProps, mapDispatchToProps)(Dashboard)
+export default lifecycleConnect(mapStateToProps, mapDispatchToProps)(Dashboard)
