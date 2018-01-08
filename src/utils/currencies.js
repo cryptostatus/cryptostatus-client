@@ -19,7 +19,6 @@ export const cryptoCurrencies = [
   "Game",
   "Ardr",
   "Dcr",
-  "Sjcx",
   "Gnt",
 ]
 
