@@ -3,6 +3,7 @@ import React from 'react'
 import { Input } from 'components/fields'
 import { FormButton, Button, Alert, OAuthButton } from 'components'
 import { Link } from 'react-router-dom'
+import * as path from 'routes/path'
 
 const SigninForm = ({ handleSubmit, error, submitting }) =>
   <div className='form__auth label__off'>
@@ -21,12 +22,16 @@ const SigninForm = ({ handleSubmit, error, submitting }) =>
       <div className='form__submit'>
         <FormButton className='black__theme' type='submit' loading={submitting} text='Login' />
 
-        <span className='form__hint'>
-          or
-        </span>
+        <span className='form__hint'></span>
 
         <Button className='btn-link btn-hint' as={Link} to='/'>
           sign up
+        </Button>
+
+        <span className='form__hint'></span>
+
+        <Button className='btn-link btn-hint' as={Link} to={path.FORGOT_PASSWORD}>
+          forgot password?
         </Button>
       </div>
     </form>

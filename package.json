@@ -29,7 +29,8 @@
     "redux-form": "^6.6.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
-    "reselect": "^3.0.1"
+    "reselect": "^3.0.1",
+    "lifecycle-connector": "^1.0.1"
   },
   "devDependencies": {
     "node-sass-chokidar": "0.0.3",

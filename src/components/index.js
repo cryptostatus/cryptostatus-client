@@ -16,3 +16,6 @@ export { default as Icon } from './Icon';
 export { default as NotFound404 } from './NotFound404';
 export { default as Error500 } from './Error500';
 export { default as Policy } from './Policy';
+export { default as ForgotPassword } from './ForgotPassword';
+export { default as ForgotPasswordEmail } from './ForgotPasswordEmail';
+export { default as ResetPassword } from './ResetPassword';
