@@ -1,9 +1,0 @@
-test:
-  override:
-    - echo "test"
-
-deployment:
-  production:
-    branch: master
-    commands:
-      - bundle exec cap production deploy
